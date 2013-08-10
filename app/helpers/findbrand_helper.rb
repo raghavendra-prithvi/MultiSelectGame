@@ -1,0 +1,2 @@
+module FindbrandHelper
+end

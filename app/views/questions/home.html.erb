@@ -1,0 +1,60 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<table align = "center" style="border:1px solid #000">
+<%# @question.each do |que| %>
+  <tr> <td>Try Answering the Question Below</td> </tr>
+  <tr> <td> <b><h3>Q1: <%= @question.img_url %> </h3></b></td> </tr>
+  <tr> <td> <b><input type="button" hidden="true" id="nextBtn" onclick="nextPage()" value="Next"></input></b> <b><input type="button" hidden="hidden"  id="buyBtn" onclick="alert('This functionality is not yet developed.')" value="Buy"></input></b></td> <td> </td></tr>
+  <%=hidden_field_tag :question_id,@question.id,{:id=>"questionId"} %>
+  <tr><td colspan="2"><div id="Status"></div></td></tr>
+<%# end %>
+<% @question.answers.each do |a| %>
+   <tr> <td> <b><h3>
+         
+           <input type="radio" name="answer" class="ansChoice" value=<%=a.id%>>  <%=  a.ans %> </input>
+         
+         </h3></b></td> </tr>
+<% end %>  
+</table>
+
+<script>
+  $(document).ready(function(){
+   // $(".ansChoice input[type=radio]").change( function() { alert('wtf'); });
+
+   $('input:radio[name="answer"]').change(
+    function(){
+        if ($(this).is(':checked')) {
+          var idVal = $(this).val();
+          var questionId = $("#questionId").val();
+          $.ajax({
+              url: "/check_answer",
+              type: "post",
+              data: {'id' : idVal, 'questionId' : questionId },
+              success: function(data){
+                console.log(data);
+                if(data == 'true' || data == true){
+                  $("#Status").html("Congrats.. You have selected the correct choice.");
+                  $("#Status").attr('style','color:green');
+                  $("#nextBtn").show();
+                  $("#buyBtn").show();
+                }
+                else{
+                  $("#Status").html("Sorry.. You made a wrong choice.");
+                  $("#Status").attr('style','color:red');
+                  $("#nextBtn").hide();
+                  $("#buyBtn").hide();
+                }
+              }
+          });
+            // append goes here
+        }
+    });
+
+  });
+  function nextPage(){
+    window.location.href = '/home?id='+$("#questionId").val()
+  }
+</script>
