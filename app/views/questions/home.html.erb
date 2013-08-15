@@ -7,7 +7,7 @@
 <%# @question.each do |que| %>
   <tr> <td>Try Answering the Question Below</td> </tr>
   <tr> <td> <b><h3>Q1: <%= @question.img_url %> </h3></b></td> </tr>
-  <tr> <td> <b><input type="button" hidden="true" id="nextBtn" onclick="nextPage()" value="Next"></input></b> <b><input type="button" hidden="hidden"  id="buyBtn" onclick="alert('This functionality is not yet developed.')" value="Buy"></input></b></td> <td> </td></tr>
+  <tr> <td> <b><input type="button" hidden="hidden" id="nextBtn" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><input type="button" hidden="hidden"  id="buyBtn" onclick="alert('This functionality is not yet developed.')" value="Buy"  style="display:none"></input></b></td> <td> </td></tr>
   <%=hidden_field_tag :question_id,@question.id,{:id=>"questionId"} %>
   <tr><td colspan="2"><div id="Status"></div></td></tr>
 <%# end %>
