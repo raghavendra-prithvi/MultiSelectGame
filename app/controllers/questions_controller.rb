@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
+  require 'net/http'
   def index
     @questions = Question.all
 
@@ -108,4 +109,37 @@ class QuestionsController < ApplicationController
     render :text => valid.to_s
   end
   
+  def home1
+    @products = Svpply.categories.first.products("tshirt")
+    @product = @products.sample(1)
+    @products.uniq! {|e| e.store["name"] }
+    #puts @stores.inspect\
+    @product_store_name = []
+    @product_store_name << @product[0].store["name"]
+    session[:answer] = @product[0].store["name"].delete(' ')
+    puts "****************"
+    puts session[:answer]
+    @store_names = @products.map{|p| p.store["name"]} - @product_store_name
+    @selected_store_names = @store_names.sample(3)
+    @selected_store_names.insert(rand(4),@product_store_name[0])
+    #@selected_store_names.remove(@product_store_name)
+    puts "*******************"
+    puts @selected_store_names.inspect
+
+    @similar_url = @product[0].categories[2]["url"]
+    @display_name = @product[0].categories[2]["name"]
+
+    @buy_url = @product[0].url
+  end
+  def check_brand_name
+       valid = false
+       puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4"
+       puts params[:val]
+       puts session[:answer]
+      if session[:answer] == params[:val]
+        valid = true
+      end
+      render :text => valid.to_s
+  end
+
 end

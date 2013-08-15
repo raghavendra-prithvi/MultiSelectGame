@@ -1,0 +1,56 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<table align = "center" >
+  <tr> <td><h3><%=@display_name %></h3></td> </tr>
+  <tr> <td> <b><h3><%=image_tag "https://api.svpply.com/v1/products/#{@product[0].id}/image" %> </h3></b></td> </tr>
+  <tr> <td> <b><input type="button" hidden="hidden" id="nextBtn" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%> confirm ="are you sure want to buy?"><input type="button" hidden="hidden"  id="buyBtn" onclick="" value="Buy"  style="display:none"></input></b></td> <td> </td></tr>
+  <tr><td colspan="2"><div id="Status"></div></td></tr>
+<% @selected_store_names.each do |a| %>
+   <tr> <td> <b><h3>
+           <input type="radio" name="answer" class="ansChoice" value=<%=a.delete(' ')%>>  <%=  a %> </input>
+         </h3></b></td> </tr>
+<% end %>
+
+</table>
+
+<script>
+  $(document).ready(function(){
+   // $(".ansChoice input[type=radio]").change( function() { alert('wtf'); });
+
+   $('input:radio[name="answer"]').change(
+    function(){
+        if ($(this).is(':checked')) {
+          var idVal = $(this).val();
+          
+          $.ajax({
+              url: "/check_me",
+              type: "post",
+              data: {'val' : idVal },
+              success: function(data){
+                console.log(data);
+                if(data == 'true' || data == true){
+                  $("#Status").html("Congrats.. You won the game.");
+                  $("#Status").attr('style','color:green');
+                  $("#nextBtn").show();
+                  $("#buyBtn").show();
+                }
+                else{
+                  $("#Status").html("Sorry.. You made a wrong choice.");
+                  $("#Status").attr('style','color:red');
+                  $("#nextBtn").hide();
+                  $("#buyBtn").hide();
+                }
+              }
+          });
+            // append goes here
+        }
+    });
+
+  });
+  function nextPage(){
+    window.location.href = '/'
+  }
+</script>

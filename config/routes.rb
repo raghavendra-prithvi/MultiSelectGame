@@ -5,8 +5,11 @@ MultiChoiceGame::Application.routes.draw do
       resources :answers 
    end
   end
-match '/home' => 'questions#home'
+
+match 'check_me' => 'questions#check_brand_name'
+match '/home' => 'questions#home1'
 match '/check_answer' => 'questions#check_answer'
+root  :to => 'questions#home1'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
