@@ -317,13 +317,13 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: #999;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #666;
   text-decoration: underline;
 }
 
@@ -443,7 +443,7 @@ h6,
 .h5,
 .h6 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.1;
 }
 
@@ -486,6 +486,7 @@ h1,
 h2,
 .h2 {
   font-size: 32px;
+  font-weight: bold;
 }
 
 h3,
@@ -1381,10 +1382,11 @@ th {
 .table thead > tr > td,
 .table tbody > tr > td,
 .table tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border-top: 1px solid #dddddd;
+    border-top: 1px solid #DDDDDD;
+    line-height: 1.42857;
+    padding-left: 10px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .table thead > tr > th {
@@ -1427,7 +1429,7 @@ th {
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #dddddd;
+  /* border: 1px solid #dddddd; */
 }
 
 .table-striped > tbody > tr:nth-child(odd) > td,
@@ -1891,9 +1893,10 @@ textarea.input-lg {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 300;
   line-height: 1.428571429;
+  text-transform:uppercase;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -2048,7 +2051,7 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger:active,
 .btn-danger.active {
   color: #ffffff;
-  background-color: #FF5B54;
+  background-color: #56B2BD;
 }
 
 .btn-danger.disabled,
@@ -2174,7 +2177,7 @@ fieldset[disabled] .btn-link:focus {
 }
 
 .btn-lg {
-    font-size: 15px;
+  font-size: 20px;
     letter-spacing: 1px;
     line-height: 3em;
 }
@@ -2887,6 +2890,7 @@ button.close {
 .nav > li > a:focus {
   text-decoration: none;
   background-color: #eeeeee;
+  border-radius: 30px;
 }
 
 .nav > li.disabled > a {
@@ -2996,8 +3000,10 @@ button.close {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #ffffff;
-  background-color: #428bca;
+    background-color: #CCCCCC;
+    border-radius: 30px 30px 30px 30px;
+    color: #666666;
+    margin-bottom: 20px;
 }
 
 .nav-stacked > li {
@@ -4540,11 +4546,8 @@ button.close {
 
 .thumbnail,
 .img-thumbnail {
-  padding: 4px;
   line-height: 1.428571429;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
 }
@@ -5058,7 +5061,11 @@ a.list-group-item.active > .badge,
   }
   .jumbotron h1 {
     font-size: 63px;
-    margin-bottom: 50px;
+
+  font-family: Raleway Dots;
+  font-weight: normal;
+  /* Fix thin font rendering on Windows */
+  font-size: 100px;
   }
 }
 
