@@ -7,6 +7,7 @@
   <tr> <td><h3><%=@display_name %></h3></td> </tr>
   <tr> <td> <b><h3><%=image_tag "https://api.svpply.com/v1/products/#{@product[0].id}/image" %> </h3></b></td> </tr>
   <tr> <td> <b><input type="button" hidden="hidden" id="nextBtn" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%> confirm ="are you sure want to buy?"><input type="button" hidden="hidden"  id="buyBtn" onclick="" value="Buy"  style="display:none"></input></b></td> <td> </td></tr>
+  <tr> <td> <b><h3>NAME THAT DESIGNER</h3></b></td> </tr>
   <tr><td colspan="2"><div id="Status"></div></td></tr>
 <% @selected_store_names.each do |a| %>
    <tr> <td> <b><h3>
