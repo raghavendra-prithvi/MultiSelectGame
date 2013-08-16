@@ -11,7 +11,8 @@
                  <img src="http://www.placecage.com/c/30/30">
             <% end %>
           </div>
-          <div class="col-lg-2 pull-right">
+          <div class="col-lg-2 pull-right" id="score_me">
+            <%=@score.points%>
           </div>
       </div>
       <div class="jumbotron" style="min-height:200px; -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;">
@@ -90,7 +91,7 @@
   function nextPage(){
     window.location.href = '/home'
   }
-  function checkAnswer(idVal){
+   function checkAnswer(idVal){
     //$("#"+idVal).attr("onclick","#");
     $("#"+idVal).removeAttr("onclick");
     //this.attr("onclick","function(){}");
@@ -100,18 +101,17 @@
               data: {'val' : idVal },
               success: function(data){
                 console.log(data);
-                if(data == 'true' || data == true){
-                  //$("#Status").html("Congrats.. You won the game.");
-                  //$("#Status").attr('style','color:green');
-                  $("#"+idVal).attr('style','background-color:#6ABC8B');
+                if(data.valid == 'true' || data.valid == true){
+                  $("#"+idVal).attr('style','background-color:green');
                   $("a.btn").removeAttr("onclick");
                   $("#btn-next").show();
                   $("#btn-buy").show();
+                  $("#score_me").html(data.score);
                 }
-                else if(data == 'false' || data == false){
+                else if(data.valid == 'false' || data.valid == false){
                   //$("#Status").html("Sorry.. You made a wrong choice.");
                   //$("#Status").attr('style','color:red');
-                  $("#"+idVal).attr('style','background-color:#CCCCCC');
+                  $("#"+idVal).attr('style','background-color:red');
                 }
                 else{
                   window.location.href = '/over'

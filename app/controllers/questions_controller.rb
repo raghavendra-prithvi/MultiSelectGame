@@ -158,6 +158,7 @@ class QuestionsController < ApplicationController
       @products = Product.where(:brand => @selected_brand[0])
     end
     @product = @products.sample(1)
+    @score = Score.find(session[:score_id])
     session[:answer] = @selected_brand[0].delete(' ')
     session[:score_to_be_added] = 100
     puts "****************"
@@ -181,6 +182,7 @@ class QuestionsController < ApplicationController
     #puts @stores.inspect\
     @product_store_name = []
     @product_store_name << @product[0].store["name"]
+    
     session[:answer] = @product[0].store["name"].delete(' ')
     puts "****************"
     puts session[:answer]
@@ -197,21 +199,23 @@ class QuestionsController < ApplicationController
     @buy_url = @product[0].url
   end
   def check_brand_name
-       valid = false
-      if session[:answer] == params[:val]
-        valid = true
-        @score = Score.find(session[:score_id])
+      data = {}
+       data["valid"] = false
+       @score = Score.find(session[:score_id])
+    if session[:answer] == params[:val]
+        data["valid"] = true
         @score.points = @score.points + session[:score_to_be_added]
         @score.save!
       else
         session[:mistakes] += 1
         if(session[:mistakes] == 10)
             #redirect_to :action => game_over
-            valid = "completed"          
+            data["valid"] = "completed"
         end
         session[:score_to_be_added] = session[:score_to_be_added] - 25
       end
-      render :text => valid.to_s
+      data["score"] = @score.points
+      render :json => data.to_json
   end
 
   def main_home
@@ -263,12 +267,14 @@ class QuestionsController < ApplicationController
 
   def getFriendsData
     puts params.inspect
-    @scores = Score.where(:user_id => params[:ids]).order("points DESC")
+   # @scores = Score.find_by_sql("SELECT DISTINCT(s.user_id), max(s.points) FROM scores s where s.user_id in #{params[:ids]} order by s.points desc")
+    #@scores = Score.where(:user_id => params[:ids]).order("points DESC")
+    @scores = Score.where(:user_id => params[:ids]).group('user_id').order("max(points) DESC").limit(10)
     render :html => "getFriendsData", :layout => false
   end
   def getGlobalData
     puts params.inspect
-    @scores = Score.order("points DESC")
+    @scores = Score.limit(10).group('user_id').order("max(points) DESC")
     render :html => "getGlobalData", :layout => false
   end
 
