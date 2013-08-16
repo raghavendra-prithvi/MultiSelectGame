@@ -1,0 +1,75 @@
+
+        <tbody id="friendsData">
+          <% i = 1 %>
+          <% @scores.each do |s| %>
+          <tr>
+            <% @user = User.find_by_uid(s.user_id) %>
+            <td><h2><%= i  %><% i+= 1 %></h2></td>
+            <% if i < 4 %>
+              <td><h1><%=image_tag(@user.img) %></h1></td>
+              <td><h1><%=@user.name %></h1></td>
+              <td><h1><%=s.points %></h1></td>
+            <% else %>
+              <td><h4><%=image_tag(@user.img) %></h4></td>
+              <td><h4><%=@user.name %></h4></td>
+              <td><h4><%=s.points %></h4></td>
+            <% end %>
+          </tr>
+          <% end %>
+          <%#*<tr>%>
+            <%#*<td><h2>2</h2></td>%>
+            <%#*<td><h1><img src="http://www.fillmurray.com/50/50"><h1></td>%>
+            <%#*<td><h1>Heather<h1></td>%>
+            <%#*<td><h1>3,006,230<h1></td>%>
+          <%#*</tr>%>
+          <%#*<tr>%>
+            <%#*<td><h2>3</h2></td>%>
+            <%#*<td><h1><img src="http://www.fillmurray.com/50/50"><h1></td>%>
+            <%#*<td><h1>David<h1></td>%>
+            <%#*<td><h1>2,349,355<h1></td>%>
+          <%#*</tr>%>
+          <%#*<tr>%>
+            <%#*<td><h4>4</h4></td>%>
+            <%#*<td><h4><img src="http://www.fillmurray.com/25/25"><h4></td>%>
+            <%#*<td><h4>Raghu<h4></td>%>
+            <%#*<td><h4>3,130,422<h4></td>%>
+          <%#*</tr>%>
+          <%#*<tr>%>
+            <%#*<td><h4>2</h4></td>%>
+            <%#*<td><h4><img src="http://www.fillmurray.com/25/25"><h4></td>%>
+            <%#*<td><h4>Heather<h4></td>%>
+            <%#*<td><h4>3,006,230<h4></td>%>
+          <%#*</tr>%>
+          <%#*<tr>%>
+            <%#*<td><h4>6</h4></td>%>
+            <%#*<td><img src="http://www.fillmurray.com/25/25"></td>%>
+            <%#*<td><h4>David<h4></td>%>
+            <%#*<td><h4>2,349,355<h4></td>%>
+          <%#*</tr>%>
+          <%#*<tr>%>
+            <%#*<td><h4>7</h4></td>%>
+            <%#*<td><h4><img src="http://www.fillmurray.com/25/25"><h4></td>%>
+            <%#*<td><h4>Raghu<h4></td>%>
+            <%#*<td><h4>3,130,422<h4></td>%>
+          <%#*</tr>%>
+          <%#*<tr>%>
+            <%#*<td><h4>8</h4></td>%>
+            <%#*<td><h4><img src="http://www.fillmurray.com/25/25"><h4></td>%>
+            <%#*<td><h4>Heather<h4></td>%>
+            <%#*<td><h4>3,006,230<h4></td>%>
+          <%#*</tr>%>
+          <%#*<tr>%>
+            <%#*<td><h4>9</h4></td>%>
+            <%#*<td><img src="http://www.fillmurray.com/25/25"></td>%>
+            <%#*<td><h4>David<h4></td>%>
+            <%#*<td><h4>2,349,355<h4></td>%>
+          <%#*</tr>%>
+            <%#*<td><h4>10</h4></td>%>
+            <%#*<td><img src="http://www.fillmurray.com/25/25"></td>%>
+            <%#*<td><h4>David<h4></td>%>
+            <%#*<td><h4>2,349,355<h4></td>%>
+          <%#*</tr>%>
+          </tbody>
+      	
+
+  
