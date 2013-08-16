@@ -21,7 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'omniauth-facebook'
 gem "svpply" , :git => "https://github.com/raghavendra-prithvi/svpply.git"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

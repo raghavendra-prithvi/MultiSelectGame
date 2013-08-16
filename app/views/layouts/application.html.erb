@@ -8,6 +8,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+                <% if session[:user_id].nil? %>
+                 <%= link_to image_tag( 'fb_login2.png'), "/auth/facebook" %>
+                  <%#= link_to  "Login", "/auth/facebook" %>
+                <% else %>
+                  <% @user = User.find_by_uid(session[:user_id]) %>
+                  <% url = '/'+@user.to_param.split(" ").join %>
+                    <%=image_tag(@user.img,:style => "float:left; margin-top:0px; margin-top:10px; border-radius: 35px;", :size => '25x25') %>
+                  <a  href ='/users/profile?user_id='+<%=@user.id.to_s %> >
+                    <%= @user.name %>
+                  </a>
+                  <div>
+                    <%= link_to "Logout", "/sessions/destroy" %>
+                    </div>
+                 <% end %>  
+
+
 
 <%= yield %>
 

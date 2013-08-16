@@ -111,9 +111,18 @@ class QuestionsController < ApplicationController
   
   def home1
     @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
-    @selected_brand = @brands.sample(1)
-    @products = Svpply.categories.first.products(@selected_brand[0])
+    
+    @products = []
+
+    while @products.empty? do
+      @selected_brand = @brands.sample(1)
+      puts "@@@@@@@@@@@@@@@@@@@@@@@@@"
+      puts @selected_brand
+      @products = Svpply.products(query: @selected_brand[0], genders: ['male'], prices: ['$1-20'])
+    end
+    #@products.any?{|p| p.title.include? @selected_brand[0] }
     @product = @products.sample(1)
+
     #@products.uniq! {|e| e.store["name"] }
     #puts @stores.inspect\
     #@product_store_name = []
@@ -132,8 +141,8 @@ class QuestionsController < ApplicationController
     puts "*******************"
     puts @selected_store_names.inspect
 
-    @similar_url = @product[0].categories[2]["url"]
-    @display_name = @product[0].categories[2]["name"]
+    #@similar_url = @product[0].categories[2]["url"]
+    #@display_name = @product[0].categories[2]["name"]
 
     @buy_url = @product[0].url
   end
