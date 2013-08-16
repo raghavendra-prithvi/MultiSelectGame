@@ -106,30 +106,50 @@ body {
 @media (max-width: 320px) {
 
 h1, .h1 {
-    font-size: 13px;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
 h4, .h4 {
     font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+
+}
+
+.nav > li > a {
+    display: block;
+    padding: 5px 10px;
+    position: relative;
+    font-size: 11px;
+      letter-spacing: 1px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+  border-radius: 30px;
+}
+
+.btn-lg {
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 2em;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     background-color: #CCCCCC;
     border-radius: 30px 30px 30px 30px;
     color: #666666;
-    margin-bottom: 5px;
-    font-size: 10px;
+    margin-bottom: 20px;
+    font-size: 11px;
+      letter-spacing: 1px;
 }
 
 .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
-    border-top: 1px solid #DDDDDD;
     line-height: 1.42857;
     padding: 0px;
     vertical-align: top;
 
-.btn-lg {
-    font-size: 15px;
-    letter-spacing: 1px;
-    line-height: 2em;
-}
 }

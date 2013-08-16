@@ -4,11 +4,10 @@
           <% @scores.each do |s| %>
           <tr>
             <% @user = User.find_by_uid(s.user_id) %>
-            <td><h2><%= i  %><% i+= 1 %></h2></td>
             <% if i < 4 %>
-              <td><h1><%=image_tag(@user.img) %></h1></td>
-              <td><h1><%=@user.name %></h1></td>
-              <td><h1><%=s.points %></h1></td>
+              <td><h4><%=image_tag(@user.img) %></h4></td>
+              <td><h4><%=@user.name %></h4></td>
+              <td><h4><%=s.points %></h4></td>
             <% else %>
               <td><h4><%=image_tag(@user.img) %></h4></td>
               <td><h4><%=@user.name %></h4></td>

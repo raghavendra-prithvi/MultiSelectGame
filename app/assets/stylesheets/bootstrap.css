@@ -467,15 +467,15 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h4,
 h5,
 h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h1,
@@ -486,7 +486,7 @@ h1,
 h2,
 .h2 {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h3,
@@ -1382,7 +1382,6 @@ th {
 .table thead > tr > td,
 .table tbody > tr > td,
 .table tfoot > tr > td {
-    border-top: 1px solid #DDDDDD;
     line-height: 1.42857;
     padding-left: 10px;
     text-align: center;
@@ -5065,7 +5064,7 @@ a.list-group-item.active > .badge,
   font-family: Raleway Dots;
   font-weight: normal;
   /* Fix thin font rendering on Windows */
-  font-size: 100px;
+  font-size: 80px;
   }
 }
 

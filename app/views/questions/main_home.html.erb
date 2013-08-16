@@ -1,3 +1,4 @@
+<link href='http://fonts.googleapis.com/css?family=Raleway|Raleway+Dots' rel='stylesheet' type='text/css'></link>
   <% if session[:user_id].nil? %>
                  <%#= link_to image_tag( 'fb_login2.png'), "" %>
                   <%#= link_to  "Login", "/auth/facebook" %>
@@ -21,7 +22,6 @@
         <div class="col-lg-12">
            <% if session[:user_id].nil? %>
             <center><a class="btn btn-facebook btn-lg text-center" href="/auth/facebook">FACEBOOK</a></div></center>
-            <center><a class="btn btn-twitter btn-lg text-center" href="#">GOOGLE</a></div></center>
             <% else %>
                 <center><a class="btn btn-facebook btn-lg text-center" href="/start">PLAY</a></div></center>
             <% end %>
