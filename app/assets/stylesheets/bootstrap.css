@@ -4561,7 +4561,6 @@ button.close {
   display: inline-block;
   height: auto;
   max-width: 100%;
-  position: absolute;
   -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;
 }
 
