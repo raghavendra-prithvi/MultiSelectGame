@@ -2179,6 +2179,7 @@ fieldset[disabled] .btn-link:focus {
     letter-spacing: 1px;
     line-height: 3em;
     font-weight: bold;
+    -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;
 }
 
 .btn-sm,
@@ -4561,6 +4562,7 @@ button.close {
   height: auto;
   max-width: 100%;
   position: absolute;
+  -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;
 }
 
 a.thumbnail:hover,
