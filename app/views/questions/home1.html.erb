@@ -1,4 +1,18 @@
 
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<script>
+function hideURLbar() {
+  if (window.location.hash.indexOf('#') == -1) {
+    window.scrollTo(0, 1);
+  }
+}
+
+if (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('Android') != -1) {
+    addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+    }, false);
+}
+</script>
 <div class="container-narrow">
       <div class="row">
 
@@ -11,11 +25,10 @@
                  <img src="http://www.placecage.com/c/30/30">
             <% end %>
           </div>
-          <div class="col-lg-2 pull-right" id="score_me">
-            <%=@score.points%>
+          <div class="col-lg-2 pull-right">
           </div>
       </div>
-      <div class="jumbotron" style="min-height:200px; -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;">
+      <div class="jumbotron" style="min-height:200px">
         <div class="img-thumbnail">
             <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :id => "prod_img" %>
         </div>
@@ -91,7 +104,7 @@
   function nextPage(){
     window.location.href = '/home'
   }
-   function checkAnswer(idVal){
+  function checkAnswer(idVal){
     //$("#"+idVal).attr("onclick","#");
     $("#"+idVal).removeAttr("onclick");
     //this.attr("onclick","function(){}");
@@ -101,17 +114,18 @@
               data: {'val' : idVal },
               success: function(data){
                 console.log(data);
-                if(data.valid == 'true' || data.valid == true){
-                  $("#"+idVal).attr('style','background-color:green');
+                if(data == 'true' || data == true){
+                  //$("#Status").html("Congrats.. You won the game.");
+                  //$("#Status").attr('style','color:green');
+                  $("#"+idVal).attr('style','background-color:#6ABC8B');
                   $("a.btn").removeAttr("onclick");
                   $("#btn-next").show();
                   $("#btn-buy").show();
-                  $("#score_me").html(data.score);
                 }
-                else if(data.valid == 'false' || data.valid == false){
+                else if(data == 'false' || data == false){
                   //$("#Status").html("Sorry.. You made a wrong choice.");
                   //$("#Status").attr('style','color:red');
-                  $("#"+idVal).attr('style','background-color:red');
+                  $("#"+idVal).attr('style','background-color:#CCCCCC');
                 }
                 else{
                   window.location.href = '/over'
