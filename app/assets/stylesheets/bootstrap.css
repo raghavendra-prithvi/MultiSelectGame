@@ -1900,7 +1900,6 @@ textarea.input-lg {
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  border: 1px solid transparent;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -2050,7 +2049,7 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger:active,
 .btn-danger.active {
   color: #ffffff;
-  background-color: #56B2BD;
+  background-color: #CCCCCC;
 }
 
 .btn-danger.disabled,
@@ -2179,6 +2178,7 @@ fieldset[disabled] .btn-link:focus {
   font-size: 20px;
     letter-spacing: 1px;
     line-height: 3em;
+    font-weight: bold;
 }
 
 .btn-sm,
@@ -4560,6 +4560,7 @@ button.close {
   display: inline-block;
   height: auto;
   max-width: 100%;
+  position: absolute;
 }
 
 a.thumbnail:hover,

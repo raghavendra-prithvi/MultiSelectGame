@@ -14,11 +14,11 @@
           <div class="col-lg-2 pull-right">
           </div>
       </div>
-      <div class="jumbotron" style="min-height:30%">
+      <div class="jumbotron" style="min-height:200px">
         <div class="img-thumbnail">
             <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :id => "prod_img" %>
         </div>
-        <input type="button" hidden="hidden" id="nextBtn" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%>   target="_blank"><input type="button" hidden="hidden"  id="buyBtn" onclick="" value="Buy"  style="display:none"></input>
+        <input type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%>   target="_blank"><input type="button" hidden="hidden"  id="btn-buy" onclick="" value="Buy"  style="display:none"></input>
       </div>
 
       <div class="row marketing">
@@ -41,8 +41,8 @@
    // $(".ansChoice input[type=radio]").change( function() { alert('wtf'); });
      var opts = {
       lines: 13, // The number of lines to draw
-      length: 20, // The length of each line
-      width: 10, // The line thickness
+      length: 5, // The length of each line
+      width: 5, // The line thickness
       radius: 50, // The radius of the inner circle
       corners: 1, // Corner roundness (0..1)
       rotate: 0, // The rotation offset
@@ -73,12 +73,12 @@
                 if(data == 'true' || data == true){
                   $("#Status").html("Congrats.. You won the game.");
                   $("#Status").attr('style','color:green');
-                  $("#nextBtn").show();
-                  $("#buyBtn").show();
+                  $("#btn-next").show();
+                  $("#btn-buy").show();
                 }
                 else{
                   $("#Status").html("Sorry.. You made a wrong choice.");
-                  $("#Status").attr('style','color:red');                  
+                  $("#Status").attr('style','color:#AAAAAA');                  
                 }
               }
           });
@@ -103,15 +103,15 @@
                 if(data == 'true' || data == true){
                   //$("#Status").html("Congrats.. You won the game.");
                   //$("#Status").attr('style','color:green');
-                  $("#"+idVal).attr('style','background-color:green');
+                  $("#"+idVal).attr('style','background-color:#6ABC8B');
                   $("a.btn").removeAttr("onclick");
-                  $("#nextBtn").show();
-                  $("#buyBtn").show();
+                  $("#btn-next").show();
+                  $("#btn-buy").show();
                 }
                 else if(data == 'false' || data == false){
                   //$("#Status").html("Sorry.. You made a wrong choice.");
                   //$("#Status").attr('style','color:red');
-                  $("#"+idVal).attr('style','background-color:red');
+                  $("#"+idVal).attr('style','background-color:#CCCCCC');
                 }
                 else{
                   window.location.href = '/over'

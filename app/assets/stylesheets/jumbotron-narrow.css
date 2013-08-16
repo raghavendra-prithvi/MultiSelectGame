@@ -75,6 +75,44 @@ body {
   width: 100%;
 }
 
+#btn-next {
+    -moz-user-select: none;
+    background-color: #000000;
+    border: 0 solid transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+#btn-buy {
+    -moz-user-select: none;
+    background-color: #000000;
+    border: 0 solid transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+}
 
 /* Supporting marketing content */
 .marketing {
@@ -135,7 +173,7 @@ h4, .h4 {
 .btn-lg {
     font-size: 11px;
     letter-spacing: 1px;
-    line-height: 2em;
+    line-height: 2.5em;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
