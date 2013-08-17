@@ -3449,8 +3449,8 @@ button.close {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #cccccc;
+  border:none;
 }
 
 .navbar-inverse .navbar-brand {
@@ -4561,7 +4561,6 @@ button.close {
   display: inline-block;
   height: auto;
   max-width: 100%;
-  -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;
 }
 
 a.thumbnail:hover,

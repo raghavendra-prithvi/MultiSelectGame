@@ -10,16 +10,14 @@
 </script>
 <div class="container-narrow">
       <div class="row">
-
           <div class="col-lg-2">
-            <%if !session[:user_id].nil?%>
-                     <% @user = User.find_by_uid(session[:user_id]) %>
-                    <%=image_tag(@user.img,:style => "left:0; top:0; margin-top:0px; position:absolute; border-radius:30px;", :size => '50x50') %>
-           <% else %>
-                 <img src="http://www.placecage.com/c/30/30">
-            <% end %>
+            <h1><i class="icon-chevron-left"></i><h1>        
+            <%#if !session[:user_id].nil?%>
+                     <%# @user = User.find_by_uid(session[:user_id]) %>
+                    <%#=image_tag(@user.img,:style => "left:0; top:0; margin-top:0px; z-index: 999999; border-radius:30px;", :size => '50x50') %>
+            <%# end %>
           </div>
-          <div class="col-lg-1 pull-right" id="score_me">
+          <div id="score_me">
             <%=@score.points%>
           </div>
       </div>
