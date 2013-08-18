@@ -9,7 +9,7 @@ MultiChoiceGame::Application.routes.draw do
 match 'check_me' => 'questions#check_brand_name'
 match '/home' => 'questions#home1'
 match '/check_answer' => 'questions#check_answer'
-root  :to => 'questions#home1'
+root  :to => 'questions#main_home'
 
   match '/auth/facebook/callback' => 'sessions#create'
   # The priority is based upon order of creation:

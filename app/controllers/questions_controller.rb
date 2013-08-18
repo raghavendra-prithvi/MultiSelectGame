@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_filter :login_req, :except => ['main_home']
   # GET /questions
   # GET /questions.json
   require 'net/http'
@@ -115,10 +116,8 @@ class QuestionsController < ApplicationController
     @products = []
 
     while @products.empty? do
-      @selected_brand = @brands.sample(1)
-      puts "@@@@@@@@@@@@@@@@@@@@@@@@@"
-      puts @selected_brand
-      @products = Svpply.products(query: @selected_brand[0], genders: ['male'], prices: ['$1-20'])
+      @selected_brand = @brands.sample(1)           
+      @products = Svpply.products(query: @selected_brand[0])
     end
     #@products.any?{|p| p.title.include? @selected_brand[0] }
     @product = @products.sample(1)
@@ -137,13 +136,7 @@ class QuestionsController < ApplicationController
       randVal = rand(4)
     end
     @selected_store_names.insert(randVal,@selected_brand[0])
-    #@selected_store_names.remove(@product_store_name)
-    puts "*******************"
-    puts @selected_store_names.inspect
-
-    #@similar_url = @product[0].categories[2]["url"]
-    #@display_name = @product[0].categories[2]["name"]
-
+  
     @buy_url = @product[0].url
   end
 
@@ -180,6 +173,19 @@ class QuestionsController < ApplicationController
         valid = true
       end
       render :text => valid.to_s
+  end
+
+  def main_home
+    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
+    @brands.each do |b|
+      @products = Svpply.products(query: b)
+      @products.each do |p|
+        Product.find_by_product_id(p.id) || Product.create_product(p,b)
+      end
+
+    end
+
+    
   end
 
 end

@@ -1,0 +1,9 @@
+ <div style="width:100%;text-align:center">
+ <% if session[:user_id].nil? %>
+                 <%= link_to image_tag( 'fb_login2.png'), "/auth/facebook" %>                  
+                <%  else %>
+                    <h1><%= link_to "Start The Game...", "/home" %></h1>
+                    </div>
+                 <% end %>
+</div>
+
