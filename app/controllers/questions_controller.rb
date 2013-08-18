@@ -208,7 +208,7 @@ class QuestionsController < ApplicationController
   def main_home
     @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
     @brands.each do |b|
-      @products = Svpply.products(query : b)
+      @products = Svpply.products(query: b)
       @products.each do |p|
         Product.find_by_product_id(p.id) || Product.create_product(p,b)
       end
