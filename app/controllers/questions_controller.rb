@@ -210,7 +210,7 @@ class QuestionsController < ApplicationController
     @brands.each do |b|
       @products = Svpply.products(query: b)
       @products.each do |p|
-        Product.find_by_product_id(p.id) || Product.create_product(p,b)
+        Product.find_by_product_id(p.id.to_s) || Product.create_product(p,b)
       end
 
     end
