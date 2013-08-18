@@ -110,7 +110,7 @@ class QuestionsController < ApplicationController
     render :text => valid.to_s
   end
   
-  def home1
+  def home1_original
     @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
     
     @products = []
@@ -140,7 +140,7 @@ class QuestionsController < ApplicationController
     @buy_url = @product[0].url
   end
 
-   def home2_backup
+   def home1
     @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
 
     @products = []
@@ -148,7 +148,7 @@ class QuestionsController < ApplicationController
     while @products.empty? do
       @selected_brand = @brands.sample(1)
       #@products = Svpply.products(query: @selected_brand[0])
-      @products = Product.find_by_brand(@selected_brand[0])
+      @products = Product.where(:brand => @selected_brand[0])
     end
     #@products.any?{|p| p.title.include? @selected_brand[0] }
     @product = @products.sample(1)

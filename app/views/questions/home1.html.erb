@@ -12,7 +12,7 @@
 <% @selected_store_names.each do |a| %>
    <tr> <td> <b><h3>
            <a href="#" onclick="checkAnswer(this.id)" id=<%= a.delete(' ')  %> ><%=  a %> </a>
-           <input type="radio" name="answer" class="ansChoice" value=<%=a.delete(' ')%>>  <%=  a %> </input>
+           <!-- <input type="radio" name="answer" class="ansChoice" value=<%=a.delete(' ')%>>  <%=  a %> </input> -->
          </h3></b></td> </tr>
 <% end %>
 
@@ -63,12 +63,14 @@
                 if(data == 'true' || data == true){
                   $("#Status").html("Congrats.. You won the game.");
                   $("#Status").attr('style','color:green');
+                  $("#"+idVal).attr('style','color:green');
                   $("#nextBtn").show();
                   $("#buyBtn").show();
                 }
                 else{
                   $("#Status").html("Sorry.. You made a wrong choice.");
                   $("#Status").attr('style','color:red');
+                  $("#"+idVal).attr('style','color:red');
                 }
               }
           });
