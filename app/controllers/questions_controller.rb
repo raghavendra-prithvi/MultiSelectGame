@@ -140,6 +140,36 @@ class QuestionsController < ApplicationController
     @buy_url = @product[0].url
   end
 
+   def home2_backup
+    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
+
+    @products = []
+
+    while @products.empty? do
+      @selected_brand = @brands.sample(1)
+      #@products = Svpply.products(query: @selected_brand[0])
+      @products = Product.find_by_brand(@selected_brand[0])
+    end
+    #@products.any?{|p| p.title.include? @selected_brand[0] }
+    @product = @products.sample(1)
+
+    #@products.uniq! {|e| e.store["name"] }
+    #puts @stores.inspect\
+    #@product_store_name = []
+    #@product_store_name << @product[0].store["name"]
+    session[:answer] = @selected_brand[0].delete(' ')
+    puts "****************"
+    puts session[:answer]
+    @store_names = @brands - @selected_brand
+    @selected_store_names = @store_names.sample(3)
+    randVal = rand(4)
+    1..rand(10).times do
+      randVal = rand(4)
+    end
+    @selected_store_names.insert(randVal,@selected_brand[0])
+
+    @buy_url = @product[0].buy_url
+  end
 
   def home1_backup
 
@@ -176,14 +206,14 @@ class QuestionsController < ApplicationController
   end
 
   def main_home
-    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
-    @brands.each do |b|
-      @products = Svpply.products(query: b)
-      @products.each do |p|
-        Product.find_by_product_id(p.id) || Product.create_product(p,b)
-      end
-
-    end
+#    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
+#    @brands.each do |b|
+#      @products = Svpply.products(query: b)
+#      @products.each do |p|
+#        Product.find_by_product_id(p.id) || Product.create_product(p,b)
+#      end
+#
+#    end
 
     
   end
