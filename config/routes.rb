@@ -1,5 +1,8 @@
 MultiChoiceGame::Application.routes.draw do
 
+  resources :brands
+
+
   resources :questions do
    member do
       resources :answers 
@@ -10,7 +13,7 @@ match 'check_me' => 'questions#check_brand_name'
 match '/home' => 'questions#home1'
 match '/check_answer' => 'questions#check_answer'
 root  :to => 'questions#main_home'
-
+match "/load_data" => "questions#load_data"
   match '/auth/facebook/callback' => 'sessions#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
