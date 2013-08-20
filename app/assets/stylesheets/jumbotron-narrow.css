@@ -1,6 +1,5 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -91,7 +90,6 @@ body {
 }
 
 #btn-next {
-    -moz-user-select: none;
     background-color: #000000;
     border: 0 solid transparent;
     color: #FFFFFF;
@@ -108,6 +106,8 @@ body {
     text-transform: uppercase;
     vertical-align: middle;
     white-space: nowrap;
+    border-radius:30px;
+    transition: color 0.2s linear 0s;
 }
 #btn-buy {
     -moz-user-select: none;
@@ -127,7 +127,14 @@ body {
     text-transform: uppercase;
     vertical-align: middle;
     white-space: nowrap;
+    border-radius: 30px;
+    transition: color 0.2s linear 0s;
 }
+
+section#hero {
+    background: url("bg.png") repeat fixed 0 0 transparent;
+    height: 500px;
+    width: auto;}
 
 /* Supporting marketing content */
 .marketing {

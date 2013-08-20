@@ -305,6 +305,7 @@ body {
   line-height: 1.428571429;
   color: #333333;
   background-color: #ffffff;
+
 }
 
 input,
@@ -2179,7 +2180,7 @@ fieldset[disabled] .btn-link:focus {
     letter-spacing: 1px;
     line-height: 3em;
     font-weight: bold;
-    -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;
+    transition: color 0.2s linear 0s;
 }
 
 .btn-sm,
@@ -5059,12 +5060,11 @@ a.list-group-item.active > .badge,
   .jumbotron {
   }
   .jumbotron h1 {
-    font-size: 63px;
-
-  font-family: Raleway Dots;
-  font-weight: normal;
-  /* Fix thin font rendering on Windows */
-  font-size: 80px;
+    font-family: Helvetica Neue,Arial,sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    padding: 20px;
   }
 }
 

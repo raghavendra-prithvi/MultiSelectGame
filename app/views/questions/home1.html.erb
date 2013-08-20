@@ -11,23 +11,23 @@
 <div class="container-narrow">
       <div class="row">
           <div class="col-lg-2">
-            <h1><i class="icon-chevron-left"></i><h1>        
+            <h1><i class="icon-chevron-left"></i><h1>    
             <%#if !session[:user_id].nil?%>
                      <%# @user = User.find_by_uid(session[:user_id]) %>
                     <%#=image_tag(@user.img,:style => "left:0; top:0; margin-top:0px; z-index: 999999; border-radius:30px;", :size => '50x50') %>
             <%# end %>
           </div>
-          <div id="score_me">
+                    <div id="score_me">
             <%=@score.points%>
-          </div>
+          </div>    
       </div>
-      <div class="jumbotron" style="min-height:200px">
+      <div class="jumbotron" style="min-height:275px">
         <div class="prod_img">
             <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :class => "img-thumbnail" %>
         </div>
-        <input type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="Next" style="display:none"></input></b> <b><a href=<%=@buy_url%> target="_blank"><input type="button" hidden="hidden" id="btn-buy" onclick="" value="Buy" style="display:none"></input>
+        <i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i></i>
+        <i type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="" style="display:none"><i class="icon-arrow-right"></i></i><a href=<%=@buy_url%> target="_blank">
       </div>
-
       <div class="row marketing">
         <div class="col-lg-12">
           <% @selected_store_names.each do |a| %>
@@ -61,13 +61,11 @@
               success: function(data){
                 console.log(data);
                 if(data == 'true' || data == true){
-                  $("#Status").html("Congrats.. You won the game.");
-                  $("#Status").attr('style','color:green');
+                  $("#Status").attr('style','color:#6ABC8B');
                   $("#btn-next").show();
                   $("#btn-buy").show();
                 }
                 else{
-                  $("#Status").html("Sorry.. You made a wrong choice.");
                   $("#Status").attr('style','color:#AAAAAA');
                 }
               }
