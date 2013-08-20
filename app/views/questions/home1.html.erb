@@ -2,7 +2,13 @@
       <div class="row">
 
           <div class="col-lg-2">
-            <img src="http://www.placecage.com/c/30/30"><h6>0</h6>
+            <%if !session[:user_id].nil?%>
+                     <% @user = User.find_by_uid(session[:user_id]) %>
+                    <%=image_tag(@user.img,:style => "float:left; margin-top:0px; margin-top:10px; border-radius: 35px;", :size => '25x25') %>
+                     <%= link_to "Logout", "/sessions/destroy" %>
+           <% else %>
+                 <img src="http://www.placecage.com/c/30/30">
+            <% end %>
           </div>
           <div class="col-lg-2 pull-right">
             XXXXXX
