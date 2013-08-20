@@ -134,7 +134,8 @@ body {
 section#hero {
     background: url("bg.png") repeat fixed 0 0 transparent;
     height: 500px;
-    width: auto;}
+    width: auto;
+  }
 
 /* Supporting marketing content */
 .marketing {
@@ -157,6 +158,13 @@ section#hero {
   .header {
     margin-bottom: 30px;
   }
+
+h1, .h1 {
+    font-size: 38px;
+    font-weight: bold;
+    padding: 20px;
+}
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
@@ -171,6 +179,11 @@ section#hero {
     font-weight: lighter;
 }
 
+section#hero {
+    background: url("bg.png") repeat fixed 0 0 transparent;
+    height: 200px;
+    width: auto;
+  }
 
 .jumbotron {
   text-align: center;
