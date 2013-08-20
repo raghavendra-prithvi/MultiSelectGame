@@ -1,9 +1,24 @@
- <div style="width:100%;text-align:center">
- <% if session[:user_id].nil? %>
-                 <%= link_to image_tag( 'fb_login2.png'), "/auth/facebook" %>                  
-                <%  else %>
-                    <h1><%= link_to "Start The Game...", "/home" %></h1>
-                    </div>
-                 <% end %>
-</div>
+<div class="container-narrow">
+      <div class="jumbotron">
+        <h1>NAME THAT DESIGNER</h1>
+      </div>
+      <row>
+        <img src="/assets/splash.jpg"/>
+      </row>
+      <div class="row marketing">
+        <div class="col-lg-12">
+           <% if session[:user_id].nil? %>
+            <center><a class="btn btn-facebook btn-lg text-center" href="/auth/facebook">FACEBOOK</a></div></center>
+            <center><a class="btn btn-twitter btn-lg text-center" href="#">TWITTER</a></div></center>
+            <% else %>
+                <center><a class="btn btn-facebook btn-lg text-center" href="/home">PLAY</a></div></center>
+            <% end %>
+        </div>
+        <div class="col-lg-12 text-center">
+          <a class="btn btn-blank btn-lg btn-block" href="#"><h5>HIGH SCORES </H5></a>
+        </div>
+      </div>
+
+    </div>
+
 

@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MultiChoiceGame</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  <title>NAME THAT DESIGNER</title>
+  <%= stylesheet_link_tag    "application","bootstrap.css","jumbotron-narrow.css", :media => "all" %>
   
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+    
+
                 <% if session[:user_id].nil? %>
-                 <%= link_to image_tag( 'fb_login2.png'), "/auth/facebook" %>
+                 <%#= link_to image_tag( 'fb_login2.png'), "" %>
                   <%#= link_to  "Login", "/auth/facebook" %>
                 <% else %>
                   <% @user = User.find_by_uid(session[:user_id]) %>

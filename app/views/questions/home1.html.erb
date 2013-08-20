@@ -1,22 +1,32 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<div class="container-narrow">
+      <div class="row">
 
-<table align = "center" >
-  <tr> <td><h3><%=@display_name %></h3></td> </tr>
-  <tr> <td> <b><h3><%=image_tag "https://api.svpply.com/v1/products/#{@product[0].id}/image" %> </h3></b></td> </tr>
-  <tr> <td> <b><input type="button" hidden="hidden" id="nextBtn" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%>   target="_blank"><input type="button" hidden="hidden"  id="buyBtn" onclick="" value="Buy"  style="display:none"></input></b></td> <td> </td></tr>
-  <tr> <td> <b><h3>NAME THAT DESIGNER</h3></b></td> </tr>
-  <tr><td colspan="2"><div id="Status"></div></td></tr>
-<% @selected_store_names.each do |a| %>
-   <tr> <td> <b><h3>
-           <a href="#" onclick="checkAnswer(this.id)" id=<%= a.delete(' ')  %> ><%=  a %> </a>
-           <!-- <input type="radio" name="answer" class="ansChoice" value=<%=a.delete(' ')%>>  <%=  a %> </input> -->
-         </h3></b></td> </tr>
-<% end %>
+          <div class="col-lg-2">
+            <img src="http://www.placecage.com/c/30/30"><h6>0</h6>
+          </div>
+          <div class="col-lg-2 pull-right">
+            XXXXXX
+          </div>
+      </div>
+      <div class="jumbotron">
+            <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image" %>
+        <input type="button" hidden="hidden" id="nextBtn" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%>   target="_blank"><input type="button" hidden="hidden"  id="buyBtn" onclick="" value="Buy"  style="display:none"></input>
+      </div>
 
-</table>
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <% @selected_store_names.each do |a| %>
+          <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg btn-block" id=<%= a.delete(' ')  %> ><%=  a %> </a>
+            <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
+          <% end %>
+          <%#*<a class="btn btn-success btn-lg btn-block" href="#">CORRECT</a>%>
+          <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
+          <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
+        </div>
+    </div>
+</div>
+
+
 
 <script>
   $(document).ready(function(){
@@ -63,14 +73,14 @@
                 if(data == 'true' || data == true){
                   $("#Status").html("Congrats.. You won the game.");
                   $("#Status").attr('style','color:green');
-                  $("#"+idVal).attr('style','color:green');
+                  $("#"+idVal).attr('style','background-color:green');
                   $("#nextBtn").show();
                   $("#buyBtn").show();
                 }
                 else{
                   $("#Status").html("Sorry.. You made a wrong choice.");
                   $("#Status").attr('style','color:red');
-                  $("#"+idVal).attr('style','color:red');
+                  $("#"+idVal).attr('style','background-color:red');
                 }
               }
           });
