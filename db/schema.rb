@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(:version => 20130821092349) do
 
   create_table "scores", :force => true do |t|
     t.integer  "points",     :limit => 8
-    t.integer  "user_id"
+    t.integer  "user_id",    :limit => 16
     t.string   "remarks"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "users", :force => true do |t|
