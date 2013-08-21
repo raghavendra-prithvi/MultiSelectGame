@@ -14,8 +14,10 @@
             XXXXXX
           </div>
       </div>
-      <div class="jumbotron">
-            <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image" %>
+      <div class="jumbotron" style="min-height:30%">
+        <div class="img-thumbnail">
+            <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :id => "prod_img" %>
+        </div>
         <input type="button" hidden="hidden" id="nextBtn" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%>   target="_blank"><input type="button" hidden="hidden"  id="buyBtn" onclick="" value="Buy"  style="display:none"></input>
       </div>
 
@@ -37,7 +39,26 @@
 <script>
   $(document).ready(function(){
    // $(".ansChoice input[type=radio]").change( function() { alert('wtf'); });
-
+     var opts = {
+      lines: 13, // The number of lines to draw
+      length: 20, // The length of each line
+      width: 10, // The line thickness
+      radius: 50, // The radius of the inner circle
+      corners: 1, // Corner roundness (0..1)
+      rotate: 0, // The rotation offset
+      direction: 1, // 1: clockwise, -1: counterclockwise
+      color: '#000', // #rgb or #rrggbb
+      speed: 1, // Rounds per second
+      trail: 60, // Afterglow percentage
+      shadow: false, // Whether to render a shadow
+      hwaccel: false, // Whether to use hardware acceleration
+      className: 'spinner', // The CSS class to assign to the spinner
+      zIndex: 2e9, // The z-index (defaults to 2000000000)
+      top: 'auto', // Top position relative to parent in px
+      left: 'auto' // Left position relative to parent in px
+    };
+    var target = document.getElementById('prod_img');
+    var spinner = new Spinner(opts).spin(target);
    $('input:radio[name="answer"]').change(
     function(){
         if ($(this).is(':checked')) {
@@ -70,6 +91,9 @@
     window.location.href = '/home'
   }
   function checkAnswer(idVal){
+    //$("#"+idVal).attr("onclick","#");
+    $("#"+idVal).removeAttr("onclick");
+    //this.attr("onclick","function(){}");
     $.ajax({
               url: "/check_me",
               type: "post",
@@ -77,16 +101,20 @@
               success: function(data){
                 console.log(data);
                 if(data == 'true' || data == true){
-                  $("#Status").html("Congrats.. You won the game.");
-                  $("#Status").attr('style','color:green');
+                  //$("#Status").html("Congrats.. You won the game.");
+                  //$("#Status").attr('style','color:green');
                   $("#"+idVal).attr('style','background-color:green');
+                  $("a.btn").removeAttr("onclick");
                   $("#nextBtn").show();
                   $("#buyBtn").show();
                 }
-                else{
-                  $("#Status").html("Sorry.. You made a wrong choice.");
-                  $("#Status").attr('style','color:red');
+                else if(data == 'false' || data == false){
+                  //$("#Status").html("Sorry.. You made a wrong choice.");
+                  //$("#Status").attr('style','color:red');
                   $("#"+idVal).attr('style','background-color:red');
+                }
+                else{
+                  window.location.href = '/over'
                 }
               }
           });

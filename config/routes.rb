@@ -14,6 +14,13 @@ match '/home' => 'questions#home1'
 match '/check_answer' => 'questions#check_answer'
 root  :to => 'questions#main_home'
 match "/load_data" => "questions#load_data"
+match "/start" => "questions#game_start"
+match "/highscores" => "questions#high_scores"
+match "/over" => "questions#game_end"
+match "/getFriendsData" => "questions#getFriendsData"
+match "/getGlobalData" => "questions#getGlobalData"
+
+
   match '/auth/facebook/callback' => 'sessions#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.

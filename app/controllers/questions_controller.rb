@@ -110,37 +110,39 @@ class QuestionsController < ApplicationController
     render :text => valid.to_s
   end
   
-  def home1_original
-    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
-    
-    @products = []
-
-    while @products.empty? do
-      @selected_brand = @brands.sample(1)           
-      @products = Svpply.products(query: @selected_brand[0])
-    end
-    #@products.any?{|p| p.title.include? @selected_brand[0] }
-    @product = @products.sample(1)
-
-    #@products.uniq! {|e| e.store["name"] }
-    #puts @stores.inspect\
-    #@product_store_name = []
-    #@product_store_name << @product[0].store["name"]
-    session[:answer] = @selected_brand[0].delete(' ')
-    puts "****************"
-    puts session[:answer]
-    @store_names = @brands - @selected_brand
-    @selected_store_names = @store_names.sample(3)
-    randVal = rand(4)
-    1..rand(10).times do
-      randVal = rand(4)
-    end
-    @selected_store_names.insert(randVal,@selected_brand[0])
-  
-    @buy_url = @product[0].url
-  end
+#  def home1_original
+#    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
+#
+#    @products = []
+#
+#    while @products.empty? do
+#      @selected_brand = @brands.sample(1)
+#      @products = Svpply.products(query: @selected_brand[0])
+#    end
+#    #@products.any?{|p| p.title.include? @selected_brand[0] }
+#    @product = @products.sample(1)
+#
+#    #@products.uniq! {|e| e.store["name"] }
+#    #puts @stores.inspect\
+#    #@product_store_name = []
+#    #@product_store_name << @product[0].store["name"]
+#
+#    session[:answer] = @selected_brand[0].delete(' ')
+#    puts "****************"
+#    puts session[:answer]
+#    @store_names = @brands - @selected_brand
+#    @selected_store_names = @store_names.sample(3)
+#    randVal = rand(4)
+#    1..rand(10).times do
+#      randVal = rand(4)
+#    end
+#    @selected_store_names.insert(randVal,@selected_brand[0])
+#
+#    @buy_url = @product[0].url
+#  end
 
    def home1
+     session[:score_to_be_added] = 100
      all_brands = Brand.all
     @brands = all_brands.map { |b|
       b.name
@@ -155,14 +157,9 @@ class QuestionsController < ApplicationController
       #@products = Svpply.products(query: @selected_brand[0])
       @products = Product.where(:brand => @selected_brand[0])
     end
-    #@products.any?{|p| p.title.include? @selected_brand[0] }
     @product = @products.sample(1)
-
-    #@products.uniq! {|e| e.store["name"] }
-    #puts @stores.inspect\
-    #@product_store_name = []
-    #@product_store_name << @product[0].store["name"]
     session[:answer] = @selected_brand[0].delete(' ')
+    session[:score_to_be_added] = 100
     puts "****************"
     puts session[:answer]
     @store_names = @brands - @selected_brand
@@ -177,7 +174,7 @@ class QuestionsController < ApplicationController
   end
 
   def home1_backup
-
+    session[]
     @products = Svpply.categories.first.products("tshirt")
     @product = @products.sample(1)
     @products.uniq! {|e| e.store["name"] }
@@ -201,11 +198,18 @@ class QuestionsController < ApplicationController
   end
   def check_brand_name
        valid = false
-       puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4"
-       puts params[:val]
-       puts session[:answer]
       if session[:answer] == params[:val]
         valid = true
+        @score = Score.find(session[:score_id])
+        @score.points = @score.points + session[:score_to_be_added]
+        @score.save!
+      else
+        session[:mistakes] += 1
+        if(session[:mistakes] == 10)
+            #redirect_to :action => game_over
+            valid = "completed"          
+        end
+        session[:score_to_be_added] = session[:score_to_be_added] - 25
       end
       render :text => valid.to_s
   end
@@ -226,6 +230,46 @@ class QuestionsController < ApplicationController
         Product.find_by_product_id(p.id.to_s) || Product.create_product(p,b)
       end
     end
+  end
+
+
+  def high_scores
+      @scores = Score.where(:user_id => session[:user_id]).order("points DESC")
+  end
+  
+  def game_start
+    session[:wrong_answer_count] = 0
+    session[:score_now] = 0
+    session[:mistakes] = 0
+    @score  = Score.new
+    @score.points = 0
+    @score.user_id = session[:user_id]
+    @score.save!
+    session[:score_id] = @score.id
+    
+    puts "&&&&&&&&&&&&&&&&&&&&&"
+    puts "inside start"
+    redirect_to :action => 'home1'
+    #render :text => session[:access_token].to_s
+  end
+  
+  def game_end
+    @score = Score.find(session[:score_id])
+    session[:score_id] = nil
+    session[:mistakes] = 0
+    #render :text => @score.points.to_s
+  end
+
+
+  def getFriendsData
+    puts params.inspect
+    @scores = Score.where(:user_id => params[:ids]).order("points DESC")
+    render :html => "getFriendsData", :layout => false
+  end
+  def getGlobalData
+    puts params.inspect
+    @scores = Score.order("points DESC")
+    render :html => "getGlobalData", :layout => false
   end
 
 end

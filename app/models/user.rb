@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :img, :name, :uid
+  has_many :scores
   def self.create_login(auth)
     @user = User.new
     @user.img = auth["info"]["image"]

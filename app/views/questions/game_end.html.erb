@@ -1,0 +1,10 @@
+<h1>Congrats.. You have scored <%= @score.points %> </h1>
+<script>
+  $(document).ready(function(){
+    setTimeout("ReloadPage()", 2000);
+
+  });
+  function ReloadPage(){
+    window.location.href = "/highscores";
+  }
+</script>
