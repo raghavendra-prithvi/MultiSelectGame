@@ -32,8 +32,13 @@ body {
 
 /* Custom container */
 .container-narrow {
-  margin: 0 auto;
-  max-width: 700px;
+    margin: 0 auto;
+    max-width: 500px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -64,9 +69,24 @@ body {
 }
 
 .btn-facebook {
-    background-color: #336699;
-    color: #FFFFFF;
-    margin-bottom: 2px;
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #ff5040;
+    border-color: -moz-use-text-color -moz-use-text-color #eb4b3c;
+    border-style: none none solid;
+    border-width: 0 0 2px;
+    box-shadow: 0 -2px #eb4b3c inset;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 1px #eb4b3c;
+    vertical-align: top;
     width: 100%;
   
 }
@@ -84,9 +104,25 @@ body {
 }
 
 .btn-blank {
-    background-color: #fff;
-    color: #666;
-  width: 100%;
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #EBEBEB;
+    border-color: -moz-use-text-color -moz-use-text-color #EBEBEB;
+    border-style: none none solid;
+    border-width: 0 0 2px;
+    box-shadow: 0 -2px #EBEBEB inset;
+    color: #000;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    vertical-align: top;
+    width: 100%;
 }
 
 #btn-next {
@@ -160,7 +196,7 @@ section#hero {
   }
 
 h1, .h1 {
-    font-size: 38px;
+    font-size: 20px;
     font-weight: bold;
     padding: 20px;
 }
@@ -177,6 +213,19 @@ h1, .h1 {
     color: #CCCCCC;
     font-size: 20px;
     font-weight: lighter;
+}
+
+.container-narrow {
+    margin: 0 auto;
+    max-width: 300px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+.container-narrow > hr {
+  margin: 30px 0;
 }
 
 section#hero {
@@ -218,7 +267,6 @@ h4, .h4 {
 }
 
 .btn-lg {
-    font-size: 11px;
     letter-spacing: 1px;
     line-height: 2.5em;
 }

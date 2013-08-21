@@ -304,7 +304,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #f6f6f6;
 
 }
 
@@ -5061,10 +5061,7 @@ a.list-group-item.active > .badge,
   }
   .jumbotron h1 {
     font-family: Helvetica Neue,Arial,sans-serif;
-    font-size: 80px;
     font-weight: bold;
-    letter-spacing: 5px;
-    padding: 20px;
   }
 }
 
