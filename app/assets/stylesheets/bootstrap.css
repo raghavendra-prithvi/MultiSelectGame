@@ -51,7 +51,6 @@ body {
 }
 
 a:focus {
-  outline: thin dotted;
 }
 
 a:active,
@@ -329,9 +328,6 @@ a:focus {
 }
 
 a:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
 }
 
 img {
@@ -1909,7 +1905,7 @@ textarea.input-lg {
 }
 
 .btn:focus {
-  outline: thin dotted #333;
+  background-color: #CCCCCC;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
