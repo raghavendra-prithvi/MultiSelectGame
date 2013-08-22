@@ -75,21 +75,21 @@ body {
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     background: none repeat scroll 0 0 #3B5998;
-    border-color: -moz-use-text-color -moz-use-text-color #3B5998;
+    border-color: -moz-use-text-color -moz-use-text-color #3b4288;
     border-image: none;
     border-style: none none solid;
     border-width: 0 0 2px;
-    box-shadow: 0 -2px #3B5998 inset;
-    color: white;
+    box-shadow: 0 -3px #3b4288 inset;
+    color: #FFFFFF;
     cursor: pointer;
     font-size: 22px;
     padding: 0;
     position: relative;
     text-align: center;
-    text-shadow: 0 1px 1px #3B5998;
+    text-shadow: 0 1px 1px #3b4288;
     vertical-align: top;
     width: 100%;
-  
+    letter-spacing: 2px;
 }
 .btn-playagain {
     background-color: #56B2BD;
@@ -110,15 +110,15 @@ body {
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     background: none repeat scroll 0 0 #6DC0D2;
-    border-color: -moz-use-text-color -moz-use-text-color #6DC0D2;
+    border-color: -moz-use-text-color -moz-use-text-color #6da7c1;
     border-image: none;
     border-style: none none solid;
     border-width: 0 0 2px;
-    box-shadow: 0 -2px #6DC0D2 inset;
-    color: white;
+    box-shadow: 0 -2px #6da7c1 inset;
+    color: #FFFFFF;
     cursor: pointer;
-    margin-top: 30px;
     font-size: 22px;
+    margin-top: 10px;
     padding: 0;
     position: relative;
     text-align: center;
@@ -243,7 +243,7 @@ section#hero {
 }
 
 h1, .h1 {
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 1px;
 }
 
