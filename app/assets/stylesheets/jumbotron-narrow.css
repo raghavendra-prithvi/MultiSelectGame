@@ -129,39 +129,40 @@ body {
 }
 
 #btn-next {
-    background-color: #4FAFC4;
+    background-color: #6ABC8B;
     border: 0 solid transparent;
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
+    font-style: normal;
     font-weight: bold;
     letter-spacing: 2px;
     line-height: 1.42857;
     margin-bottom: 0;
-    padding: 20px;
+    padding: 10px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
     transition: color 0.2s linear 0s;
-    vertical-align: middle;
     white-space: nowrap;
     width: 100px;
 }
 #btn-buy {
     -moz-user-select: none;
-    background-color: #299B70;
+    background-color: #4fafc4;
     border: 0 solid transparent;
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
+    font-style: normal;
     font-weight: bold;
     letter-spacing: 2px;
     line-height: 1.42857;
     margin-bottom: 0;
     margin-top: 20px;
-    padding: 20px;
+    padding: 10px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
