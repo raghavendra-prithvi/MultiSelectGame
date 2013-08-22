@@ -477,7 +477,7 @@ h6 {
 
 h1,
 .h1 {
-  font-size: 38px;
+  font-size: 20px;
 }
 
 h2,
@@ -3120,8 +3120,9 @@ button.close {
 }
 
 .navbar-header {
-  padding-right: 15px;
-  padding-left: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #ccc;
 }
 
 .navbar-header:before,
@@ -3145,8 +3146,8 @@ button.close {
 }
 
 @media (min-width: 768px) {
-  .navbar-header {
-    float: left;
+    border-bottom: 1px solid #CCCCCC;
+    text-align: center;
   }
 }
 
