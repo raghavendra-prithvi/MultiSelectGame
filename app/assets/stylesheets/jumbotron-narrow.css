@@ -46,10 +46,10 @@ body {
 }
 
 #score_me {
-    color: #000;
+    color: #000000;
     float: right;
-    font-size: 50px;
-    font-weight: lighter;
+    font-size: 25px;
+    font-weight: 100;
     top: 0;
     vertical-align: middle;
 }
@@ -214,9 +214,10 @@ h1, .h1 {
 @media (max-width: 320px) {
 
 #score_me {
-    color: #CCCCCC;
-    font-size: 20px;
-    font-weight: lighter;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 100;
+     vertical-align: middle;
 }
 
 .container-narrow {
