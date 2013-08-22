@@ -78,7 +78,8 @@ body {
     border-color: -moz-use-text-color -moz-use-text-color #3b4288;
     border-image: none;
     border-style: none none solid;
-    border-width: 0 0 2px;
+    border-width: 0 0 5px;
+      border-radius: 0 0 5px 5px;
     box-shadow: 0 -3px #3b4288 inset;
     color: #FFFFFF;
     cursor: pointer;
@@ -113,7 +114,7 @@ body {
     border-color: -moz-use-text-color -moz-use-text-color #6da7c1;
     border-image: none;
     border-style: none none solid;
-    border-width: 0 0 2px;
+    border-width: 0 0 5px;
     box-shadow: 0 -2px #6da7c1 inset;
     color: #FFFFFF;
     cursor: pointer;
@@ -125,6 +126,7 @@ body {
     text-shadow: 0 1px 1px #6DC0D2;
     vertical-align: top;
     width: 100%;
+      border-radius: 0 0 5px 5px;
 }
 
 #btn-next {
