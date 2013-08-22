@@ -36,10 +36,8 @@ body {
     max-width: 500px;
     margin-top: 20px;
     background-color: #ffffff;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-    padding-bottom: 5px
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -173,7 +171,7 @@ body {
 
 section#hero {
     background: url("bg.png") repeat fixed 0 0 transparent;
-    height: 500px;
+    height: 400px;
     width: auto;
   }
 
@@ -225,7 +223,6 @@ h1, .h1 {
     max-width: 300px;
     margin-top: 5px;
     background-color: #ffffff;
-    border-radius: 5px;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     padding-top: 10px
@@ -273,9 +270,9 @@ h4, .h4 {
 }
 
 .btn-lg {    
-    letter-spacing: 1px;
-    line-height: 3em;
     font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 2em
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
