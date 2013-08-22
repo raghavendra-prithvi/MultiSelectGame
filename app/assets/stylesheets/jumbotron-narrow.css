@@ -38,7 +38,8 @@ body {
     background-color: #ffffff;
     border-radius: 5px;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    padding-bottom: 5px
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -70,22 +71,22 @@ body {
 
 .btn-facebook {
     -moz-border-bottom-colors: none;
-    -moz-border-image: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background: none repeat scroll 0 0 #ff5040;
-    border-color: -moz-use-text-color -moz-use-text-color #eb4b3c;
+    background: none repeat scroll 0 0 #3B5998;
+    border-color: -moz-use-text-color -moz-use-text-color #3B5998;
+    border-image: none;
     border-style: none none solid;
     border-width: 0 0 2px;
-    box-shadow: 0 -2px #eb4b3c inset;
+    box-shadow: 0 -2px #3B5998 inset;
     color: white;
     cursor: pointer;
     font-size: 22px;
     padding: 0;
     position: relative;
     text-align: center;
-    text-shadow: 0 1px 1px #eb4b3c;
+    text-shadow: 0 1px 1px #3B5998;
     vertical-align: top;
     width: 100%;
   
@@ -105,22 +106,23 @@ body {
 
 .btn-blank {
     -moz-border-bottom-colors: none;
-    -moz-border-image: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    background: none repeat scroll 0 0 #EBEBEB;
-    border-color: -moz-use-text-color -moz-use-text-color #EBEBEB;
+    background: none repeat scroll 0 0 #6DC0D2;
+    border-color: -moz-use-text-color -moz-use-text-color #6DC0D2;
+    border-image: none;
     border-style: none none solid;
     border-width: 0 0 2px;
-    box-shadow: 0 -2px #EBEBEB inset;
-    color: #000;
+    box-shadow: 0 -2px #6DC0D2 inset;
+    color: white;
     cursor: pointer;
+    margin-top: 30px;
     font-size: 22px;
     padding: 0;
     position: relative;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 1px 1px #6DC0D2;
     vertical-align: top;
     width: 100%;
 }
@@ -218,11 +220,12 @@ h1, .h1 {
 .container-narrow {
     margin: 0 auto;
     max-width: 300px;
-    margin-top: 20px;
+    margin-top: 5px;
     background-color: #ffffff;
     border-radius: 5px;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    padding-top: 10px
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -266,9 +269,10 @@ h4, .h4 {
   border-radius: 30px;
 }
 
-.btn-lg {
+.btn-lg {    
     letter-spacing: 1px;
-    line-height: 2.5em;
+    line-height: 3em;
+    font-size: 14px;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
