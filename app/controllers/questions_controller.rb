@@ -238,7 +238,7 @@ class QuestionsController < ApplicationController
 
 
   def high_scores
-      @scores = Score.where(:user_id => session[:user_id]).order("points DESC").limit(10)
+      @scores = Score.limit(10).where(:user_id => session[:user_id]).order("points DESC")
   end
   
   def game_start
