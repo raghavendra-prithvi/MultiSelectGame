@@ -129,7 +129,7 @@ body {
 }
 
 #btn-next {
-    background-color: #000000;
+    background-color: #4FAFC4;
     border: 0 solid transparent;
     color: #FFFFFF;
     cursor: pointer;
@@ -143,13 +143,14 @@ body {
     position: relative;
     text-align: center;
     text-transform: uppercase;
+    transition: color 0.2s linear 0s;
     vertical-align: middle;
     white-space: nowrap;
-    transition: color 0.2s linear 0s;
+    width: 100px;
 }
 #btn-buy {
     -moz-user-select: none;
-    background-color: #000000;
+    background-color: #299B70;
     border: 0 solid transparent;
     color: #FFFFFF;
     cursor: pointer;
@@ -159,13 +160,14 @@ body {
     letter-spacing: 2px;
     line-height: 1.42857;
     margin-bottom: 0;
+    margin-top: 20px;
     padding: 20px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
-    vertical-align: middle;
-    white-space: nowrap;
     transition: color 0.2s linear 0s;
+    white-space: nowrap;
+    width: 100px;
 }
 
 section#hero {
