@@ -55,7 +55,6 @@ body {
 }
 
 .prod_img {
-  position: absolute;
   text-align: center;
 }
 
@@ -146,7 +145,6 @@ body {
     text-transform: uppercase;
     vertical-align: middle;
     white-space: nowrap;
-    border-radius:30px;
     transition: color 0.2s linear 0s;
 }
 #btn-buy {
@@ -167,7 +165,6 @@ body {
     text-transform: uppercase;
     vertical-align: middle;
     white-space: nowrap;
-    border-radius: 30px;
     transition: color 0.2s linear 0s;
 }
 
