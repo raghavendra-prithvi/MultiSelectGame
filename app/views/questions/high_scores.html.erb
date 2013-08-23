@@ -44,7 +44,7 @@
       function friendScores(){
         var token = $("#access_tkn").val();
         $.ajax({
-                url: "https://graph.facebook.com/me/friends?fields=installed&installed=true&access_token="+token,
+                url: "https://graph.facebook.com/me/friends?limit=100000&offset=0&fields=installed&installed=true&access_token="+token,
                 type: "GET",
                 success: function(resp){
                   console.log(resp);

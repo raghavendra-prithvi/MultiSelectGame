@@ -269,13 +269,12 @@ class QuestionsController < ApplicationController
     puts params.inspect
    # @scores = Score.find_by_sql("SELECT DISTINCT(s.user_id), max(s.points) FROM scores s where s.user_id in #{params[:ids]} order by s.points desc")
     #@scores = Score.where(:user_id => params[:ids]).order("points DESC")
-    @scores = Score.where(:user_id => params[:ids]).select("user_id,points").order("max(points) DESC").limit(10)
+    @scores = Score.where(:user_id => params[:ids]).select("user_id,max(points) mp").group("user_id,points").order("points DESC").limit(10)
     render :html => "getFriendsData", :layout => false
   end
   def getGlobalData
-    
-
-    @scores = Score.limit(10).select("DISTINCT user_id,points").order("max(points) DESC")
+    @scores = Score.limit(10).select("distinct user_id,max(points) mp").group("user_id,points").order("points DESC")
+  # @scores = Score.limit(10).select("distinct user_id,*")
     render :html => "getGlobalData", :layout => false
   end
 
