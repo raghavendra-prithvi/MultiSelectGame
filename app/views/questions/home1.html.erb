@@ -1,31 +1,37 @@
 
+
+<script>
+    $(document).ready(function() {
+            $(".btn-lg").css("display", "none");
+            $(".btn-lg").fadeIn(800);
+            $(".prod_img").css("display", "none");
+            $(".prod_img").fadeIn(1000);
+    });
+</script>
 <div class="container-narrow">
       <div class="row">
-
           <div class="col-lg-2">
-            <%if !session[:user_id].nil?%>
-                     <% @user = User.find_by_uid(session[:user_id]) %>
-                    <%=image_tag(@user.img,:style => "float:left; margin-top:0px; margin-top:10px; border-radius: 35px;", :size => '25x25') %>
-                     <%= link_to "Logout", "/sessions/destroy" %>
-           <% else %>
-                 <img src="http://www.placecage.com/c/30/30">
-            <% end %>
+            <h1><i class="icon-chevron-left"></i><h1>        
+            <%#if !session[:user_id].nil?%>
+                     <%# @user = User.find_by_uid(session[:user_id]) %>
+                    <%#=image_tag(@user.img,:style => "left:0; top:0; margin-top:0px; z-index: 999999; border-radius:30px;", :size => '50x50') %>
+            <%# end %>
           </div>
-          <div class="col-lg-2 pull-right" id="score_me">
+          <div id="score_me">
             <%=@score.points%>
           </div>
       </div>
       <div class="jumbotron" style="min-height:200px">
-        <div class="img-thumbnail">
-            <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :id => "prod_img" %>
+        <div class="prod_img">
+            <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :class => "img-thumbnail" %>
         </div>
-        <input type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="Next"  style="display:none"></input></b> <b><a href=<%=@buy_url%>   target="_blank"><input type="button" hidden="hidden"  id="btn-buy" onclick="" value="Buy"  style="display:none"></input>
+        <input type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="Next" style="display:none"></input></b> <b><a href=<%=@buy_url%> target="_blank"><input type="button" hidden="hidden" id="btn-buy" onclick="" value="Buy" style="display:none"></input>
       </div>
 
       <div class="row marketing">
         <div class="col-lg-12">
           <% @selected_store_names.each do |a| %>
-          <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg btn-block" id=<%= a.delete(' ')  %> ><%=  a %> </a>
+          <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg btn-block" id=<%= a.delete(' ') %> ><%= a %> </a>
             <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
           <% end %>
           <%#*<a class="btn btn-success btn-lg btn-block" href="#">CORRECT</a>%>
@@ -40,24 +46,7 @@
 <script>
   $(document).ready(function(){
    // $(".ansChoice input[type=radio]").change( function() { alert('wtf'); });
-     var opts = {
-      lines: 13, // The number of lines to draw
-      length: 5, // The length of each line
-      width: 5, // The line thickness
-      radius: 50, // The radius of the inner circle
-      corners: 1, // Corner roundness (0..1)
-      rotate: 0, // The rotation offset
-      direction: 1, // 1: clockwise, -1: counterclockwise
-      color: '#000', // #rgb or #rrggbb
-      speed: 1, // Rounds per second
-      trail: 60, // Afterglow percentage
-      shadow: false, // Whether to render a shadow
-      hwaccel: false, // Whether to use hardware acceleration
-      className: 'spinner', // The CSS class to assign to the spinner
-      zIndex: 2e9, // The z-index (defaults to 2000000000)
-      top: 'auto', // Top position relative to parent in px
-      left: 'auto' // Left position relative to parent in px
-    };
+
     var target = document.getElementById('prod_img');
     var spinner = new Spinner(opts).spin(target);
    $('input:radio[name="answer"]').change(
@@ -79,7 +68,7 @@
                 }
                 else{
                   $("#Status").html("Sorry.. You made a wrong choice.");
-                  $("#Status").attr('style','color:#AAAAAA');                  
+                  $("#Status").attr('style','color:#AAAAAA');
                 }
               }
           });
@@ -102,16 +91,17 @@
               success: function(data){
                 console.log(data);
                 if(data.valid == 'true' || data.valid == true){
-                  $("#"+idVal).attr('style','background-color:green');
+                  $("#"+idVal).attr('style','background-color:#6ABC8B');
                   $("a.btn").removeAttr("onclick");
                   $("#btn-next").show();
+                  $("#btn-next").fadeIn(1000);
                   $("#btn-buy").show();
                   $("#score_me").html(data.score);
                 }
                 else if(data.valid == 'false' || data.valid == false){
                   //$("#Status").html("Sorry.. You made a wrong choice.");
                   //$("#Status").attr('style','color:red');
-                  $("#"+idVal).attr('style','background-color:red');
+                  $("#"+idVal).attr('style','background-color:#cccccc');
                 }
                 else{
                   window.location.href = '/over'

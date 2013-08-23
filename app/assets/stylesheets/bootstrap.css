@@ -2179,6 +2179,7 @@ fieldset[disabled] .btn-link:focus {
     letter-spacing: 1px;
     line-height: 3em;
     font-weight: bold;
+    -moz-animation: 500ms ease 150ms normal both 1 fadeInRight;
 }
 
 .btn-sm,
@@ -3448,8 +3449,8 @@ button.close {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #cccccc;
+  border:none;
 }
 
 .navbar-inverse .navbar-brand {
@@ -4560,7 +4561,6 @@ button.close {
   display: inline-block;
   height: auto;
   max-width: 100%;
-  position: absolute;
 }
 
 a.thumbnail:hover,
@@ -5038,13 +5038,12 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
   background-color: #fff;
-  margin-bottom: 50px;
+
 }
 
 .jumbotron h1 {

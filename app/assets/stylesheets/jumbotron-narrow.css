@@ -40,9 +40,24 @@ body {
   margin: 30px 0;
 }
 
+#score_me {
+    color: #000;
+    float: right;
+    font-size: 50px;
+    font-weight: lighter;
+    top: 0;
+    vertical-align: middle;
+}
+
+.prod_img {
+  position: absolute;
+  text-align: center;
+}
+
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
+
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -142,6 +157,18 @@ body {
 }
 /* MOBILE: Portrait and up */
 @media (max-width: 320px) {
+
+#score_me {
+    color: #CCCCCC;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+
+.jumbotron {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
 h1, .h1 {
     font-size: 20px;
