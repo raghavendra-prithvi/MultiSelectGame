@@ -17,7 +17,7 @@
             <%# end %>
       </div>
       <div class="jumbotron" style="min-height:275px">
-        <div class="prod_img">
+          <div class="prod_img" style="margin-top:20px;">
             <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :class => "img-thumbnail" %>
         </div>
         <i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i>Buy</i>

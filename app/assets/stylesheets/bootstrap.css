@@ -482,8 +482,8 @@ h1,
 
 h2,
 .h2 {
-  font-size: 32px;
-  font-weight: normal;
+    font-size: 60px;
+    font-weight: 100;
 }
 
 h3,
@@ -2173,8 +2173,8 @@ fieldset[disabled] .btn-link:focus {
 
 .btn-lg {
   font-size: 20px;
-    letter-spacing: 1px;
-    line-height: 3em;
+    letter-spacing: 3px;
+    line-height: 2.5em;
     font-weight: bold;
     transition: color 0.2s linear 0s;
 }

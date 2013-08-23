@@ -72,20 +72,17 @@ body {
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     background: none repeat scroll 0 0 #3B5998;
-    border-color: -moz-use-text-color -moz-use-text-color #3b4288;
     border-image: none;
-    border-style: none none solid;
-    box-shadow: 0 -3px #3b4288 inset;
     color: #FFFFFF;
     cursor: pointer;
     font-size: 22px;
+    letter-spacing: 2px;
     padding: 0;
     position: relative;
     text-align: center;
-    text-shadow: 0 1px 1px #3b4288;
+    text-shadow: 0 1px 1px #3B4288;
     vertical-align: top;
     width: 100%;
-    letter-spacing: 2px;
 }
 .btn-playagain {
     background-color: #56B2BD;
@@ -167,6 +164,7 @@ section#hero {
     background: url("bg.png") repeat fixed 0 0 transparent;
     height: 400px;
     width: auto;
+    margin-bottom: 20px;
   }
 
 /* Supporting marketing content */
@@ -243,6 +241,10 @@ h4, .h4 {
     margin-top: 5px;
     margin-bottom: 0px;
 
+}
+ h2, .h2 {
+    font-size: 62px;
+    font-weight: 100;
 }
 
 .nav > li > a {
