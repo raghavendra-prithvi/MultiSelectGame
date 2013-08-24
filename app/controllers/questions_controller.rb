@@ -147,9 +147,6 @@ class QuestionsController < ApplicationController
     @brands = all_brands.map { |b|
       b.name
     }
-    
-#    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
-
     @products = []
 
     while @products.empty? do
@@ -159,10 +156,9 @@ class QuestionsController < ApplicationController
     end
     @product = @products.sample(1)
     @score = Score.find(session[:score_id])
-    session[:answer] = @selected_brand[0].delete(' ')
+
+    session[:answer] = @selected_brand[0].gsub(/\W+/, '')
     session[:score_to_be_added] = 100
-    puts "****************"
-    puts session[:answer]
     @store_names = @brands - @selected_brand
     @selected_store_names = @store_names.sample(3)
     randVal = rand(4)
@@ -269,12 +265,17 @@ class QuestionsController < ApplicationController
     puts params.inspect
    # @scores = Score.find_by_sql("SELECT DISTINCT(s.user_id), max(s.points) FROM scores s where s.user_id in #{params[:ids]} order by s.points desc")
     #@scores = Score.where(:user_id => params[:ids]).order("points DESC")
-    @scores = Score.where(:user_id => params[:ids]).select("user_id,max(points) mp").group("user_id,points").order("points DESC").limit(10)
+    params[:ids] << session[:user_id]
+    @scores = Score.where(:user_id => params[:ids]).maximum(:points,group: 'user_id')
+    puts "%%%%%%%%%%%%%%%%%%%%%%%"
+    puts @scores.inspect
+    #Score.where(:user_id => params[:ids]).select("user_id,max(points) mp").group("user_id,points").order("points DESC").limit(10)
     render :html => "getFriendsData", :layout => false
   end
   def getGlobalData
-    @scores = Score.limit(10).select("distinct user_id,max(points) mp").group("user_id,points").order("points DESC")
+   # @scores = Score.limit(10).select("distinct user_id,max(points) mp").group("user_id,points").order("points DESC")
   # @scores = Score.limit(10).select("distinct user_id,*")
+    @scores = Score.maximum(:points,group: 'user_id')
     render :html => "getGlobalData", :layout => false
   end
 

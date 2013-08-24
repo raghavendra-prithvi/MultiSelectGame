@@ -1,17 +1,17 @@
 
         <tbody id="friendsData">
           <% i = 1 %>
-          <% @scores.each do |s| %>
+          <% @scores.each do |s,v| %>
           <tr>
-            <% @user = User.find_by_uid(s.user_id) %>
+            <% @user = User.find_by_uid(s) %>
             <% if i < 4 %>
               <td><h4><%=image_tag(@user.img) %></h4></td>
               <td><h4><%=@user.name %></h4></td>
-              <td><h4><%=s.points %></h4></td>
+              <td><h4><%=v %></h4></td>
             <% else %>
               <td><h4><%=image_tag(@user.img) %></h4></td>
               <td><h4><%=@user.name %></h4></td>
-              <td><h4><%=s.points %></h4></td>
+              <td><h4><%=v %></h4></td>
             <% end %>
           </tr>
           <% end %>
