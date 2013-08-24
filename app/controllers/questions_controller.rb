@@ -246,11 +246,7 @@ class QuestionsController < ApplicationController
     @score.user_id = session[:user_id]
     @score.save!
     session[:score_id] = @score.id
-    
-    puts "&&&&&&&&&&&&&&&&&&&&&"
-    puts "inside start"
     redirect_to :action => 'home1'
-    #render :text => session[:access_token].to_s
   end
   
   def game_end
@@ -266,7 +262,8 @@ class QuestionsController < ApplicationController
    # @scores = Score.find_by_sql("SELECT DISTINCT(s.user_id), max(s.points) FROM scores s where s.user_id in #{params[:ids]} order by s.points desc")
     #@scores = Score.where(:user_id => params[:ids]).order("points DESC")
     params[:ids] << session[:user_id]
-    @scores = Score.where(:user_id => params[:ids]).maximum(:points,group: 'user_id')
+    @scores = Score.where(:user_id => params[:ids]).limit(10).maximum(:points,group: 'user_id')
+    @scores = @scores.sort_by { |k| k[1] }.reverse
     puts "%%%%%%%%%%%%%%%%%%%%%%%"
     puts @scores.inspect
     #Score.where(:user_id => params[:ids]).select("user_id,max(points) mp").group("user_id,points").order("points DESC").limit(10)
@@ -275,7 +272,8 @@ class QuestionsController < ApplicationController
   def getGlobalData
    # @scores = Score.limit(10).select("distinct user_id,max(points) mp").group("user_id,points").order("points DESC")
   # @scores = Score.limit(10).select("distinct user_id,*")
-    @scores = Score.maximum(:points,group: 'user_id')
+    @scores = Score.limit(10).maximum(:points,group: 'user_id')
+    @scores = @scores.sort_by { |k| k[1] }.reverse
     render :html => "getGlobalData", :layout => false
   end
 
