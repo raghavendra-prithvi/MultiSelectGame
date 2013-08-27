@@ -118,7 +118,7 @@ body {
 }
 
 #btn-next {
-    background-color: #6ABC8B;
+    background-color: #0000FF;
     border: 0 solid transparent;
     color: #FFFFFF;
     cursor: pointer;
@@ -139,7 +139,7 @@ body {
 }
 #btn-buy {
     -moz-user-select: none;
-    background-color: #4fafc4;
+    background-color: #0000FF;
     border: 0 solid transparent;
     color: #FFFFFF;
     cursor: pointer;
