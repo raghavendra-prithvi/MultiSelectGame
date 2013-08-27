@@ -1912,8 +1912,9 @@ textarea.input-lg {
 
 .btn:hover,
 .btn:focus {
-  color: #CCCCCC;
+  color: #ffffff;
   text-decoration: none;
+  background-color:#333333;
 }
 
 .btn:active,
@@ -2176,7 +2177,7 @@ fieldset[disabled] .btn-link:focus {
     letter-spacing: 3px;
     line-height: 2.5em;
     font-weight: bold;
-    transition: color 0.2s linear 0s;
+    transition: background-color 0.2s linear 0s;
 }
 
 .btn-sm,

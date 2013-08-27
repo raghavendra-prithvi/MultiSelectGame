@@ -10,7 +10,11 @@
 </script>
 <div class="container-narrow">
       <div class="navbar-header">
-            <h1><i class="icon-chevron-left"></i><div id="score_me"><%=@score.points%></div></h1>    
+         <div class="col-md-1">
+            <h1><a href="/#_=_" i class="icon-chevron-left"></a>
+           </div>
+           <div class="col-md-4 text-center"><center><h6>NAME that DESIGNER</h6></center></div>
+          <div id="score_me"><%=@score.points%></div></h1>    
             <%#if !session[:user_id].nil?%>
                      <%# @user = User.find_by_uid(session[:user_id]) %>
                     <%#=image_tag(@user.img,:style => "left:0; top:0; margin-top:0px; z-index: 999999; border-radius:30px;", :size => '50x50') %>
