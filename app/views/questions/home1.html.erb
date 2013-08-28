@@ -22,7 +22,7 @@
       </div>
       <div class="jumbotron">
           <div class="prod_img" style="margin-top:20px;">
-            <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :class => "img-thumbnail" %>
+            <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image?type=medium", :class => "img-thumbnail", :alt=> "", :style => "max-height:340px" %>
         </div>
                 <i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i></i>
         <i type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="" style="display:none"><i class="icon-arrow-right"></i></i><a href=<%=@buy_url%> target="_blank">
