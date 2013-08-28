@@ -61,7 +61,7 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-
+  min-height:280px
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -79,7 +79,6 @@ body {
     cursor: pointer;
     font-size: 22px;
     letter-spacing: 2px;
-    padding: 0;
     position: relative;
     text-align: center;
     text-shadow: 0 1px 1px #3B4288;
@@ -87,7 +86,7 @@ body {
     width: 100%;
 }
 .btn-playagain {
-    background-color: #56B2BD;
+    background-color: #000000;
     color: #FFFFFF;
     margin-bottom: 20px;
     width: 100%;
@@ -110,7 +109,6 @@ body {
     cursor: pointer;
     font-size: 22px;
     margin-top: 10px;
-    padding: 0;
     position: relative;
     text-align: center;
     text-shadow: 0 1px 1px #3F9988;
@@ -135,7 +133,6 @@ body {
     position: relative;
     text-align: center;
     text-transform: uppercase;
-    transition: color 0.2s linear 0s;
     white-space: nowrap;
     width: 100px;
 }
@@ -157,9 +154,15 @@ body {
     position: relative;
     text-align: center;
     text-transform: uppercase;
-    transition: color 0.2s linear 0s;
+    transition: background-color 0.2s linear 0s;
     white-space: nowrap;
     width: 100px;
+}
+.back {
+    color: #000000;
+    font-size: 25px;
+    font-weight: 100;
+    vertical-align: middle;
 }
 
 section#hero {
@@ -204,6 +207,17 @@ h1, .h1 {
 /* MOBILE: Portrait and up */
 @media (max-width: 320px) {
 
+.jumbotron {
+  text-align: center;
+  min-height:200px
+}
+
+.thumbnail > img, .img-thumbnail {
+    display: inline-block;
+    height: 200px;
+    max-width: 100%;
+}
+
 #score_me {
     color: #000000;
     font-size: 25px;
@@ -218,7 +232,7 @@ h1, .h1 {
     background-color: #ffffff;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-  height:470px;
+    height:460px;
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -226,7 +240,7 @@ h1, .h1 {
 
 section#hero {
     background: url("bg.png") repeat fixed 0 0 transparent;
-    height: 280px;
+    height: 270px;
     width: auto;
   }
 
@@ -235,8 +249,9 @@ section#hero {
 }
 
 h1, .h1 {
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 1px;
+    padding: 10px;
 }
 
 h4, .h4 {
@@ -268,7 +283,7 @@ h4, .h4 {
 .btn-lg {    
     font-size: 14px;
     letter-spacing: 1px;
-    line-height: 3em
+    line-height: 2em;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {

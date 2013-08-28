@@ -20,11 +20,11 @@
                     <%#=image_tag(@user.img,:style => "left:0; top:0; margin-top:0px; z-index: 999999; border-radius:30px;", :size => '50x50') %>
             <%# end %>
       </div>
-      <div class="jumbotron" style="min-height:275px">
+      <div class="jumbotron">
           <div class="prod_img" style="margin-top:20px;">
             <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image", :class => "img-thumbnail" %>
         </div>
-        <i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i></i>
+                <i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i></i>
         <i type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="" style="display:none"><i class="icon-arrow-right"></i></i><a href=<%=@buy_url%> target="_blank">
       </div>
       <div class="row marketing">
@@ -60,7 +60,7 @@
               success: function(data){
                 console.log(data);
                 if(data == 'true' || data == true){
-                  $("#Status").attr('style','color:#6ABC8B');
+                  $("#Status").attr('style','color:#68DDAB');
                   $("#btn-next").show();
                   $("#btn-buy").show();
                 }
@@ -88,7 +88,7 @@
               success: function(data){
                 console.log(data);
                 if(data.valid == 'true' || data.valid == true){
-                  $("#"+idVal).attr('style','background-color:#6ABC8B');
+                  $("#"+idVal).attr('style','background-color:#68DDAB');
                   $("a.btn").removeAttr("onclick");
                   $("#btn-next").show();
                   $("#btn-next").fadeIn(1000);
