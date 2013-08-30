@@ -46,22 +46,33 @@ body {
 #score_me {
     color: #000000;
     float: right;
-    font-size: 25px;
     font-weight: 100;
-    top: 0;
-    vertical-align: middle;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.win{
+    margin-top:-200px;
+}
+
+.backbtn {
+    background-image: url("back.png");
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    margin-top: 20px
+    cursor:pointer;
 }
 
 .prod_img {
   text-align: center;
   width:100%
-    height:auto;
+  height:auto;
 }
 
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-  min-height:280px
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -85,6 +96,7 @@ body {
     vertical-align: top;
     width: 100%;
 }
+
 .btn-playagain {
     background-color: #000000;
     color: #FFFFFF;
@@ -123,7 +135,7 @@ body {
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
-    font-size: 15px;
+    font-size: 25px;
     font-style: normal;
     font-weight: bold;
     letter-spacing: 2px;
@@ -143,13 +155,12 @@ body {
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
-    font-size: 15px;
+    font-size: 25px;
     font-style: normal;
     font-weight: bold;
     letter-spacing: 2px;
     line-height: 1.42857;
     margin-bottom: 0;
-    margin-top: 20px;
     padding: 10px;
     position: relative;
     text-align: center;
