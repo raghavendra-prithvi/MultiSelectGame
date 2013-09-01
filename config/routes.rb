@@ -20,6 +20,8 @@ match "/over" => "questions#game_end"
 match "/getFriendsData" => "questions#getFriendsData"
 match "/getGlobalData" => "questions#getGlobalData"
 
+match "/badges" => "questions#badges"
+
 
   match '/auth/facebook/callback' => 'sessions#create'
   # The priority is based upon order of creation:

@@ -1,5 +1,6 @@
 
-
+<%= javascript_include_tag "iosOverlay.js","modernizr-2.0.6.min" %>
+<%= stylesheet_link_tag "iosOverlay.css" %>
 <script>
     $(document).ready(function() {
             $(".btn-lg").css("display", "none");
@@ -12,8 +13,8 @@
       <div class="navbar-header">
           <div class="backbtn"></a>
           </div>
-           <div class="col-sm-10 text-center"><center><h3 style="margin-bottom: 20px; margin-top:20px">NAME that DESIGNER</h3></center></div>
-          <div id="score_me"><%=@score.points%></div> 
+           <div class="col-sm-10 text-center"><center><h3 style="margin-bottom: 20px; margin-top:20px">NAME that DESIGNER<span id="score_me"><%=@score.points%></span></h3></center></div>
+           
             <%#if !session[:user_id].nil?%>
                      <%# @user = User.find_by_uid(session[:user_id]) %>
                     <%#=image_tag(@user.img,:style => "left:0; top:0; margin-top:0px; z-index: 999999; border-radius:30px;", :size => '50x50') %>
@@ -23,13 +24,13 @@
           <div class="prod_img" style="margin-top:20px; margin-bottom:20px;">
             <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image?type=medium", :class => "img-thumbnail", :alt=> "", :style => "max-height:340px" %>
                     <div class="win">
-                <i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i></i>
-        <i type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="" style="display:none"><i class="icon-arrow-right"></i></i><a href=<%=@buy_url%> target="_blank">
+                <a href=<%=@buy_url%> target="_blank"><i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i></i></a>
+        <i type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="" style="display:none"><i class="icon-arrow-right"></i></i>
       </div>
         </div>
     </div>
       <div class="row">
-        <div class="col-lg-12" style="margin-top: 200px; padding-bottom:20px;">
+        <div class="col-lg-12" style="margin-top: 0px; padding-bottom:20px;">
           <% @selected_store_names.each do |a| %>
           <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg btn-block" id=<%= a.gsub(/\W+/, '') %> ><%= a %> </a>
             <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
@@ -88,6 +89,13 @@
               data: {'val' : idVal },
               success: function(data){
                 console.log(data);
+                if(data.achieved == true){
+                  iosOverlay({
+                          text: data.badge_name,
+                          duration: 2e3,
+                          icon: data.badge_url
+                  });
+                }
                 if(data.valid == 'true' || data.valid == true){
                   $("#"+idVal).attr('style','background-color:#68DDAB');
                   $("a.btn").removeAttr("onclick");

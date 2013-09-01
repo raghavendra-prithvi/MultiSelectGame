@@ -1,0 +1,42 @@
+<link href='http://fonts.googleapis.com/css?family=Raleway|Raleway+Dots' rel='stylesheet' type='text/css'></link>
+ <div class="container-narrow">
+      <div class="jumbotron">
+        <h1>Badges</h1>
+      </div>
+      <row>
+      	
+<%=hidden_field_tag :auth_token,session[:access_token],:id => "access_tkn"%>
+      	<table class="table" id="data_table">
+        <tbody id="selfData">
+          <% @user = User.find_by_uid(session[:user_id]) %>
+          <% i = 0 %>
+          <tr>
+          <% @badges.each do |s| %>
+          
+            
+              <td border="1"><h4><%=image_tag(s.image, :size => '25x25' )%></h4>
+              <br/>
+              <%= s.name %>
+              </td>
+              <%  i+= 1 %>
+             <% if i%4 == 0 %>
+              </tr><br></br><tr>
+            <% end %>
+          
+          <% end %>
+                </tr>
+          </tbody>
+      	</table>
+    </row>
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <a class="btn btn-playagain btn-lg text-center" href="/start">PLAY AGAIN</a>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript">
+      
+
+    </script>

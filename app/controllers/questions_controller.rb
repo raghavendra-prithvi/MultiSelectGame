@@ -148,9 +148,14 @@ class QuestionsController < ApplicationController
       b.name
     }
     @products = []
-
+    tot_brands = @brands.length
     while @products.empty? do
-      @selected_brand = @brands.sample(1)
+      puts "bfr rand *******************"
+      b_rand = rand(tot_brands)
+      puts "aftr rand *******************"
+      @selected_brand = []
+       @selected_brand << @brands[b_rand]
+
       #@products = Svpply.products(query: @selected_brand[0])
       @products = Product.where(:brand => @selected_brand[0])
     end
@@ -196,17 +201,65 @@ class QuestionsController < ApplicationController
   end
   def check_brand_name
       data = {}
+      puts "****************************8 first"
        data["valid"] = false
        @score = Score.find(session[:score_id])
+       @user = User.find_by_uid(session[:user_id])
+        @question = @user
+        status = @user.user_status
     if session[:answer] == params[:val]
+      puts "****************************8 answer chek "
+        
+        puts status.inspect
+        if status.nil?
+          new_status = UserStatus.new
+          new_status.user_id = @user.id
+          new_status.save!
+          status = new_status
+        end
+        puts "**************** after if"
+        if status.right_answers.nil?
+          status.right_answers = 1
+        else
+          puts "****************************8 right answers"
+          puts status.right_answers
+          status.right_answers += 1
+        end
+        status.save!
+        resultBadge = check_success_badges(status.right_answers)
+        if(resultBadge > 0)
+          data["achieved"] = true
+          @badge = Merit::Badge.find(resultBadge)
+          data["badge_url"] = @badge.image
+          data["badge_name"] = @badge.name
+        end
         data["valid"] = true
         @score.points = @score.points + session[:score_to_be_added]
         @score.save!
       else
+        if status.nil?
+          new_status = UserStatus.new
+          new_status.user_id = @user.id
+          new_status.save!
+          status = new_status
+        end
+        if status.wrong_answers.nil?
+          status.wrong_answers = 1
+        else
+          status.wrong_answers += 1
+        end
+        status.save!
         session[:mistakes] += 1
         if(session[:mistakes] == 10)
             #redirect_to :action => game_over
             data["valid"] = "completed"
+        end
+        resultBadge = check_failure_badges(status.wrong_answers)
+        if(resultBadge > 0)
+          data["achieved"] = true
+          @badge = Merit::Badge.find(resultBadge)
+          data["badge_url"] = @badge.image
+          data["badge_name"] = @badge.name
         end
         session[:score_to_be_added] = session[:score_to_be_added] - 25
       end
@@ -223,7 +276,6 @@ class QuestionsController < ApplicationController
     @brands = all_brands.map { |b|
       b.name
     }
-#    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
     @brands.each do |b|
       @products = Svpply.products(query: b)
       @products.each do |p|
@@ -241,6 +293,7 @@ class QuestionsController < ApplicationController
     session[:wrong_answer_count] = 0
     session[:score_now] = 0
     session[:mistakes] = 0
+    #@@brand_length = Brand.all.length
     @score  = Score.new
     @score.points = 0
     @score.user_id = session[:user_id]
@@ -264,8 +317,7 @@ class QuestionsController < ApplicationController
     params[:ids] << session[:user_id]
     @scores = Score.where(:user_id => params[:ids]).limit(10).maximum(:points,group: 'user_id')
     @scores = @scores.sort_by { |k| k[1] }.reverse
-    puts "%%%%%%%%%%%%%%%%%%%%%%%"
-    puts @scores.inspect
+    
     #Score.where(:user_id => params[:ids]).select("user_id,max(points) mp").group("user_id,points").order("points DESC").limit(10)
     render :html => "getFriendsData", :layout => false
   end
@@ -275,6 +327,91 @@ class QuestionsController < ApplicationController
     @scores = Score.limit(10).maximum(:points,group: 'user_id')
     @scores = @scores.sort_by { |k| k[1] }.reverse
     render :html => "getGlobalData", :layout => false
+  end
+
+  def invite_friend
+      @user = User.find_by_uid(session[:user_id])
+      status = @user.user_status
+      if status.nil?
+        new_status = UserStatus.new
+        new_status.user_id = @user.id
+        new_status.save!
+        status = new_status
+      end
+      if status.invited.nil?
+        status.invited = 1
+      else
+        status.invited += 1
+      end
+      status.save!
+      #send mail to frend
+  end
+
+  def fbshare
+      @user = User.find_by_uid(session[:user_id])
+      status = @user.user_status
+      if status.nil?
+        new_status = UserStatus.new
+        new_status.user_id = @user.id
+        new_status.save!
+        status = new_status
+      end
+      status.shared_on_fb = true
+      status.save
+  end
+
+  def buyed
+      @user = User.find_by_uid(session[:user_id])
+      status = @user.user_status
+      if status.nil?
+        new_status = UserStatus.new
+        new_status.user_id = @user.id
+        new_status.save!
+        status = new_status
+      end
+      status.buyed = true
+      status.save
+  end
+
+  def check_success_badges(rightAns)
+
+    if(rightAns == 10)
+      badge_id = 1
+    elsif(rightAns == 25)
+      badge_id = 2
+    elsif(rightAns == 50)
+      badge_id = 3
+    elsif(rightAns == 100)
+      badge_id = 4
+    elsif(rightAns == 500)
+      badge_id = 5
+    elsif(rightAns == 1000)
+      badge_id = 6
+    elsif(rightAns == 10000)
+      badge_id = 7
+    else
+      badge_id = 0
+    end
+    return badge_id
+  end
+
+  def check_failure_badges(rngAns)
+      if(rngAns == 10)
+        badge_id = 8
+      elsif(rngAns == 25)
+        badge_id = 9
+      elsif(rngAns == 50)
+        badge_id = 10
+      elsif(rngAns == 100)
+        badge_id = 11
+      else
+        badge_id = 0
+      end
+      return badge_id
+  end
+
+  def badges
+    @badges = current_user.badges
   end
 
 end
