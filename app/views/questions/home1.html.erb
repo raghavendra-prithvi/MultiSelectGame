@@ -30,7 +30,7 @@
         </div>
     </div>
       <div class="row">
-        <div class="col-lg-12" style="margin-top: 0px; padding-bottom:20px;">
+        <div class="col-lg-12" style="margin-top: 200px; padding-bottom:20px;">
           <% @selected_store_names.each do |a| %>
           <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg btn-block" id=<%= a.gsub(/\W+/, '') %> ><%= a %> </a>
             <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
