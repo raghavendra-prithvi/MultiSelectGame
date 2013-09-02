@@ -16,7 +16,9 @@
             
               <td border="1"><h4><%=image_tag(s.image, :size => '25x25' )%></h4>
               <br/>
-              <%= s.name %>
+              <b><%= s.name %></b>
+              <br/>
+              <%=s.description %>
               </td>
               <%  i+= 1 %>
              <% if i%4 == 0 %>

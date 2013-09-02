@@ -5,10 +5,13 @@
 </div>
       <div class="jumbotron">
         <h2><%= @score.points %> </h2>
+        <%=hidden_field_tag :score_points,@score.points, {:id=>"score_points" }%>
       </div>
       <div class="row marketing">
         <div class="col-lg-12" style"margin-top: 200px;">
-          <a class="btn btn-share btn-lg text-center" href="/start">FB</a>
+             <p id='msg'></p>
+          <a class="btn btn-share btn-lg text-center" href="#" onclick='postToFeed(); return false;'>FB<div id='fb-root'></div>
+    </a>
           <a class="btn btn-share btn-lg text-center" href="/start">TWTR</a>
           <a class="btn btn-playagain btn-lg text-center" href="/start">PLAY AGAIN</a>
           <a class="btn btn-blank btn-lg btn-block" href="/highscores">HIGH SCORES </a>
@@ -16,3 +19,33 @@
         </div>
       </div>
     </div> <!-- /container -->
+<script src='http://connect.facebook.net/en_US/all.js'></script>
+<script>
+  FB.init({appId: "546458635407528", status: true, cookie: true});
+
+      function postToFeed() {
+
+        // calling the API ...
+        var obj = {
+          method: 'feed',
+          redirect_uri: 'http://multichoiceapp.herokuapp.com/over',
+          link: 'http://multichoiceapp.herokuapp.com/highscores',
+          picture: 'http://multichoiceapp.herokuapp.com/assets/badge.png',
+          name: 'NAME that DESIGNER',
+          caption: 'Hey! I have Scored'+$("#score_points").val()+' points. Having fun playing it...',
+          description: 'Beat me if you can'
+        };
+
+        function callback(response) {
+          //document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+          iosOverlay({
+                          text: "Posted to FaceBook",
+                          duration: 2e3,
+                          icon: ""
+                  });
+        }
+
+        FB.ui(obj, callback);
+      }
+
+</script>
