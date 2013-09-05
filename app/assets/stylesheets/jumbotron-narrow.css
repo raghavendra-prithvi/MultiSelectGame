@@ -46,9 +46,6 @@ body {
 #score_me {
     color: #000000;
     float: right;
-    font-weight: 100;
-    font-size: 20px;
-    margin-top: 20px;
 }
 
 .win{
@@ -57,10 +54,10 @@ body {
 
 .backbtn {
     background-image: url("back.png");
+    float: left;
     height: 25px;
     width: 25px;
-    position: absolute;
-    margin-top: 20px
+    margin-top: 20px;
     cursor:pointer;
 }
 
@@ -80,28 +77,32 @@ body {
 }
 
 .btn-facebook {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background: none repeat scroll 0 0 #3B5998;
+    background-color: #658AD0;
+    background-image: url("facebook.png");
+    background-repeat: no-repeat;
     border-image: none;
     color: #FFFFFF;
     cursor: pointer;
-    font-size: 22px;
     letter-spacing: 2px;
     position: relative;
     text-align: center;
-    text-shadow: 0 1px 1px #3B4288;
     vertical-align: top;
     width: 100%;
 }
 
 .btn-playagain {
-    background-color: #000000;
+    background-color: #1abc9c;
     color: #FFFFFF;
     margin-bottom: 20px;
     width: 100%;
+}
+
+.btn-playagain:hover,
+.btn-playagain:focus,
+.btn-playagain:active,
+.btn-playagain.active {
+  color: #ffffff;
+  background-color: #1aae9a;
 }
 
 .btn-twitter {
@@ -110,16 +111,11 @@ body {
   width: 300px;
 }
 
-.btn-blank {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background: none repeat scroll 0 0 #6DC0D2;
+.btn-highscores {
+    background: none repeat scroll 0 0 #1abc9c;
     border-style: none none solid;
     color: #FFFFFF;
     cursor: pointer;
-    font-size: 22px;
     margin-top: 10px;
     position: relative;
     text-align: center;
@@ -127,6 +123,14 @@ body {
     vertical-align: top;
     width: 100%;
     margin-bottom: 15px;
+}
+
+.btn-highscores:hover,
+.btn-highscores:focus,
+.btn-highscores:active,
+.btn-highscores.active {
+  color: #ffffff;
+  background-color: #1aa3a2;
 }
 
 #btn-next {
@@ -218,6 +222,20 @@ h1, .h1 {
 /* MOBILE: Portrait and up */
 @media (max-width: 320px) {
 
+.swiper-container {
+    max-height: 300px;
+}
+
+
+.backbtn {
+    background-image: url("back.png");
+    float: left;
+    height: 25px;
+    width: 25px;
+    margin-top: 15px;
+    cursor:pointer;
+}
+
 .jumbotron {
   text-align: center;
   min-height:200px
@@ -230,10 +248,9 @@ h1, .h1 {
 }
 
 #score_me {
-    color: #000000;
-    font-size: 25px;
-    font-weight: 100;
-     vertical-align: middle;
+    font-size: 18px;
+    margin-top: -2px;
+    vertical-align: middle;
 }
 
 .container-narrow {
@@ -287,19 +304,15 @@ h4, .h4 {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
-  border-radius: 30px;
 }
 
 .btn-lg {    
     font-size: 14px;
     letter-spacing: 1px;
-    line-height: 2em;
+    line-height: 1.7em;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    background-color: #CCCCCC;
-    border-radius: 30px 30px 30px 30px;
     color: #666666;
     margin-bottom: 20px;
     font-size: 11px;

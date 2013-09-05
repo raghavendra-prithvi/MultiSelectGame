@@ -35,6 +35,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    ambry (0.3.1)
     arel (3.0.2)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -66,6 +67,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    merit (1.6.1)
+      ambry (~> 0.3.0)
     mime-types (1.23)
     multi_json (1.7.8)
     multi_xml (0.5.5)
@@ -139,6 +142,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
+  merit
   omniauth-facebook
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
