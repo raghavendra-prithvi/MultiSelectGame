@@ -1,4 +1,4 @@
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 <script>
     $(document).ready(function() {
@@ -9,10 +9,9 @@
     });
 </script>
 <div class="container-narrow">
-      <div class="navbar-header">
-          <div class="backbtn"></a>
-          </div>
-           <div class="col-sm-12 text-center"><center><h4 style="margin-bottom: 20px; margin-top:20px">NAME that DESIGNER<span id="score_me"><%=@score.points%></span></h4></center></div>
+<div class="navbar-header">
+  <div class="backbtn"><img src="assets/back.png"></div>
+           <div class="col-sm-12 text-center"><center><h4>NAME that DESIGNER<span id="score_me"><%=@score.points%></span></h4></center></div>
            
             <%#if !session[:user_id].nil?%>
                      <%# @user = User.find_by_uid(session[:user_id]) %>
@@ -22,14 +21,14 @@
       <div class="jumbotron">
           <div class="prod_img" style="margin-top:20px; margin-bottom:20px;">
             <%=image_tag "https://api.svpply.com/v1/products/#{@product[0].product_id}/image?type=medium", :class => "img-thumbnail", :alt=> "", :style => "max-height:340px" %>
-                    <div class="win">
+           <div class="win">
                 <a href=<%=@buy_url%> target="_blank"><i type="button" hidden="hidden" id="btn-buy" onclick="" value="" style="display:none"><i class="icon-tag "></i></i></a>
         <i type="button" hidden="hidden" id="btn-next" onclick="nextPage()" value="" style="display:none"><i class="icon-arrow-right"></i></i>
       </div>
         </div>
     </div>
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2" style="margin-top: 200px; padding-bottom:20px;">
+        <div class="col-lg-8 col-lg-offset-2" style="padding-bottom:20px;">
           <% @selected_store_names.each do |a| %>
           <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg btn-block" id=<%= a.gsub(/\W+/, '') %> ><%= a %> </a>
             <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>

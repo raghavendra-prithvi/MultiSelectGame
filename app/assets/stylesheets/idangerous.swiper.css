@@ -84,10 +84,11 @@ sizes, pagination, etc.
 .swiper-container {
 	/* Specify Swiper's Size: */
 
-    background-color: #fff;
-    height: 500px;
+    background-color: #cccccc;
+    height: 550px;
     width: 100%;
     text-align: center;
+    padding:20px;
 }
 .swiper-slide {
 	/* Specify Slides's Size: */

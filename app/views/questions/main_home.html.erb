@@ -23,25 +23,24 @@ window.onload = function() {
 }
 </script>
 
-<div class="container-narrow"> 
 <div class="row">
 <div class="swiper-container">
   <div class="swiper-wrapper">
       <!--First Slide-->
       <div class="swiper-slide">
-                <img class="img-responsive" src="assets/step2.png">
+                <img class="img-responsive" src="assets/step.png">
 
         <!-- Any HTML content of the first slide goes here -->
       </div>
       <!--Second Slide-->
       <div class="swiper-slide">
-        <img class="img-responsive" src="assets/step3.png">
+        <img class="img-responsive" src="assets/step2.png">
         <!-- Any HTML content of the second slide goes here -->
       </div>
       
       <!--Third Slide-->
       <div class="swiper-slide">
-        <img class="img-responsive" src="assets/step.png">
+        <img class="img-responsive" src="assets/step3.png">
         <!-- Any HTML content of the third slide goes here -->
       </div>
       <!--Etc..-->
@@ -53,7 +52,7 @@ window.onload = function() {
 <span class="swiper-pagination-switch"></span>
 </div>
 </div>
-</div>
+  <div class="container-narrow"> 
       <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
            <% if session[:user_id].nil? %>
@@ -65,4 +64,5 @@ window.onload = function() {
           <a class="btn btn-highscores btn-lg text-center" href="/highscores">HIGH SCORES</a>
         </div>
           </div>
+</div>
 
