@@ -10,9 +10,10 @@
       <div class="row marketing">
         <div class="col-lg-12" style"margin-top: 200px;">
              <p id='msg'></p>
-          <a class="btn btn-share btn-lg text-center" href="#" onclick='postToFeed(); return false;'>FB<div id='fb-root'></div>
+          <a class="btn btn-share btn-lg text-center"  href="#" onclick='postToFeed(); return false;'>FB<div id='fb-root'></div>
     </a>
-          <a class="btn btn-share btn-lg text-center" href="/start">TWTR</a>
+          
+          <a class="btn btn-share btn-lg text-center" style="height:40px" id="twitter_button" href="#" data-lang="en" target="_blank" onclick="twitterClick()">TWTR</a>
           <a class="btn btn-playagain btn-lg text-center" href="/start">PLAY AGAIN</a>
           <a class="btn btn-blank btn-lg btn-block" href="/highscores">HIGH SCORES </a>
           <a class="btn btn-playagain btn-lg text-center" href="/badges">Badges</a>
@@ -21,6 +22,9 @@
     </div> <!-- /container -->
 <script src='http://connect.facebook.net/en_US/all.js'></script>
 <script>
+   !function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   FB.init({appId: "546458635407528", status: true, cookie: true});
 
       function postToFeed() {
@@ -46,6 +50,10 @@
         }
 
         FB.ui(obj, callback);
+      }
+
+      function twitterClick(){
+        $("#twitter_button").attr("href","https://twitter.com/share?url=http://multichoiceapp.herokuapp.com/&text=I have scored "+ $("#score_points").val()+".  Beat me if you can.........           ")
       }
 
 </script>
