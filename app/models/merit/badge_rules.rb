@@ -21,14 +21,14 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-      grant_on 'questions#check_brand_name', :badge => 'Lable Whore', :model_name => 'User' do |u|
+      grant_on 'questions#check_brand_name', :badge => 'Label Whore', :model_name => 'User' do |u|
         u.user_status.right_answers == 10
       end
       grant_on 'questions#check_brand_name', :badge => 'Intern', :model_name => 'User' do |user|
         user.user_status.right_answers == 10
       end
 
-      grant_on 'questions#check_brand_name', :badge => 'Lable Whore', :model_name => 'User' do |user|
+      grant_on 'questions#check_brand_name', :badge => 'Label Whore', :model_name => 'User' do |user|
         user.user_status.right_answers == 25
       end
 #
