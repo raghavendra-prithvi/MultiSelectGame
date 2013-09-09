@@ -14,7 +14,7 @@ Merit.setup do |config|
   Merit::Badge.create! ({
     id: 1,
     name: "Intern",
-    image: "/assets/badge.png",
+    image: "/assets/intern.png",
     description: "Reached 10 correct questions",
     custom_fields: { difficulty: :low }
   })
@@ -30,7 +30,7 @@ Merit.setup do |config|
   Merit::Badge.create! ({
     id: 3,
     name: "Addict",
-    image: "/assets/badge.png",
+    image: "/assets/addict.png",
     description: "Reached 50 correct questions",
     custom_fields: { difficulty: :medium }
   })
@@ -38,7 +38,7 @@ Merit.setup do |config|
   Merit::Badge.create! ({
     id: 4,
     name: "Stylist",
-    image: "/assets/badge.png",
+    image: "/assets/stylist.png",
     description: "Reached 100 correct questions",
     custom_fields: { difficulty: :high }
   })

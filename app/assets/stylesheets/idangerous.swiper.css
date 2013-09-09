@@ -17,7 +17,7 @@
 Basic Swiper Styles 
 ================================================================*/
 .swiper-container {
-	margin:0 auto;
+    margin:0 auto;
 	position:relative;
 	overflow:hidden;
 	-webkit-backface-visibility:hidden;
@@ -27,6 +27,8 @@ Basic Swiper Styles
 	backface-visibility:hidden;
 	/* Fix of Webkit flickering */
 	z-index:1;
+	    background-image: url(bg.jpg);
+
 }
 .swiper-wrapper {
 	position:relative;
@@ -83,12 +85,11 @@ sizes, pagination, etc.
 ================================================================*/
 .swiper-container {
 	/* Specify Swiper's Size: */
-
-    background-color: #cccccc;
+    background-color: #000;
     height: 550px;
-    width: 100%;
     text-align: center;
-    padding:20px;
+    width: 100%;
+    border-bottom: 1px solid #E5E5E5;
 }
 .swiper-slide {
 	/* Specify Slides's Size: */

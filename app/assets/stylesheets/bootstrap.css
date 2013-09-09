@@ -303,7 +303,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #F2F2F2;
 
 }
 
@@ -478,15 +478,12 @@ h6 {
 
 h1,
 .h1 {
-  font-size: 20px;
-  padding:20px;
-  font-weight: bold;
+  font-size: 60px;
 }
 
 h2,
 .h2 {
-    font-size: 60px;
-    font-weight: 100;
+    font-size: 30px;
 }
 
 h3,
@@ -497,7 +494,6 @@ h3,
 h4,
 .h4 {
   font-size: 18px;
-  font-weight: bold;
 }
 
 h5,
@@ -730,6 +726,10 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
+      margin-top: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #E6E6E6;
 }
 
 .container:before,
@@ -1383,8 +1383,10 @@ th {
 .table tbody > tr > td,
 .table tfoot > tr > td {
     line-height: 1.42857;
-    padding-left: 10px;
-    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 60px;
+    padding-top: 10px;
+    text-align: left;
     vertical-align: middle;
 }
 
@@ -2176,11 +2178,11 @@ fieldset[disabled] .btn-link:focus {
 }
 
 .btn-lg {
-    font-size: 13px;
     font-weight: bold;
     letter-spacing: 1.5px;
     line-height: 2.5em;
     transition: background-color 0.2s linear 0s;
+    border-radius: 2px;
 }
 
 .btn-sm,
@@ -3119,8 +3121,9 @@ button.close {
 }
 
 .navbar-header {
-    padding-left: 15px;
-    padding-right: 15px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #000;
+    border-bottom: 1px solid #E5E5E5;
 }
 
 .navbar-header:before,

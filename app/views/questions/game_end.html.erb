@@ -1,8 +1,8 @@
- <link href='http://fonts.googleapis.com/css?family=Raleway|Raleway+Dots' rel='stylesheet' type='text/css'></link>
- <div class="container-narrow">
-     <div class=" navbar-header text-center">
-       <h1> FINAL SCORE </h1>
+      <div class=" navbar-header text-center">
+          <div class="backbtn"><img src="assets/back.png"></div>
+       <h1>GAME OVER</h1>
 </div>
+ <div class="container-narrow">
       <div class="jumbotron">
         <h2><%= @score.points %> </h2>
         <%=hidden_field_tag :score_points,@score.points, {:id=>"score_points" }%>
@@ -36,7 +36,7 @@
           link: 'http://multichoiceapp.herokuapp.com/highscores',
           picture: 'http://multichoiceapp.herokuapp.com/assets/badge.png',
           name: 'NAME that DESIGNER',
-          caption: 'Hey! I have Scored'+$("#score_points").val()+' points. Having fun playing it...',
+          caption: 'I have Scored'+$("#score_points").val()+' points. Having fun playing it...',
           description: 'Beat me if you can'
         };
 
@@ -53,7 +53,7 @@
       }
 
       function twitterClick(){
-        $("#twitter_button").attr("href","https://twitter.com/share?url=http://multichoiceapp.herokuapp.com/&text=I have scored "+ $("#score_points").val()+".  Beat me if you can.........           ")
+        $("#twitter_button").attr("href","https://twitter.com/share?url=http://multichoiceapp.herokuapp.com/&text=I have scored "+ $("#score_points").val()+".  Beat me if you can...")
       }
 
 </script>
