@@ -96,6 +96,11 @@
                   });
                 }
                 if(data.valid == 'true' || data.valid == true){
+                  iosOverlay({
+                          text: "Correct!",
+                          duration: 2e1
+                  });
+
                   $("#"+idVal).attr('style','color:#000;background-color:#53F49A');
                   $("a.btn").removeAttr("onclick");
                   $("#btn-next").show();
@@ -106,6 +111,10 @@
                 else if(data.valid == 'false' || data.valid == false){
                   //$("#Status").html("Sorry.. You made a wrong choice.");
                   //$("#Status").attr('style','color:red');
+                  iosOverlay({
+                          text: "Try Again!",
+                          duration: 2e1
+                  });
                   $("#"+idVal).attr('style','color:#666666; background-color:#cccccc');
                 }
                 else{

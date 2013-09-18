@@ -42,11 +42,19 @@
 
         function callback(response) {
           //document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
-          iosOverlay({
+          /*iosOverlay({
                           text: "Posted to FaceBook",
                           duration: 2e3,
                           icon: ""
-                  });
+                  });*/
+
+                  $.ajax({
+                    url: "/questions/fbshare",
+                    type: "post",
+                    success: function(data){
+
+                    }
+                });
         }
 
         FB.ui(obj, callback);
