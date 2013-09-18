@@ -356,7 +356,7 @@ class QuestionsController < ApplicationController
         new_status.save!
         status = new_status
       end
-      status.shared_on_fb = true
+      status.shared_on_fb = true   
       status.save
   end
 
