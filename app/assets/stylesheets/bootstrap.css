@@ -303,7 +303,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #F2F2F2;
+  background-color: #ffffff;
 
 }
 
@@ -324,7 +324,7 @@ a {
 a:hover,
 a:focus {
   color: #666;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:focus {
@@ -724,12 +724,10 @@ pre code {
 }
 
 .container {
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-      margin-top: 5px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 0 #E6E6E6;
 }
 
 .container:before,
@@ -834,8 +832,6 @@ pre code {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
 }
 
 .col-xs-1,
@@ -1894,10 +1890,8 @@ textarea.input-lg {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 15px;
   line-height: 1.428571429;
-  text-transform:uppercase;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -1919,7 +1913,6 @@ textarea.input-lg {
 .btn:focus {
   color: #ffffff;
   text-decoration: none;
-  background-color:#333333;
 }
 
 .btn:active,
@@ -2044,15 +2037,14 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .btn-danger {
-  color: #ffffff;
-  background-color: #000;
-}
+    color: #FFF;
+    background-color: #000;
+  }
 
 .btn-danger:focus,
 .btn-danger:active,
 .btn-danger.active {
   color: #ffffff;
-  background-color: #CCCCCC;
 }
 
 .btn-danger.disabled,
@@ -2178,11 +2170,10 @@ fieldset[disabled] .btn-link:focus {
 }
 
 .btn-lg {
+    font-size: 50px;
     font-weight: bold;
-    letter-spacing: 1.5px;
-    line-height: 2.5em;
+    letter-spacing: 1px;
     transition: background-color 0.2s linear 0s;
-    border-radius: 2px;
 }
 
 .btn-sm,
@@ -4556,10 +4547,13 @@ button.close {
 }
 
 .thumbnail > img,
+.img-product {
+    display: inline-block;
+}
+
+.thumbnail > img,
 .img-thumbnail {
     display: inline-block;
-    height: 300px;
-    max-width: 100%;
 }
 
 a.thumbnail:hover,
