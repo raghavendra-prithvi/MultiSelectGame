@@ -26,6 +26,9 @@
         $('#simple-menu').sidr();
     });
 </script>
+                                            <div class="scoreme">Score
+                                                <%=@score.points%>
+                                            </div>
 <script>
     $(document).ready(function () {
         $(".btn-lg").css("display", "none");
@@ -48,12 +51,9 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <% @selected_store_names.each do |a| %>
-                                    <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg" id=<%=a .gsub(/\W+/, '') %> ><%= a %> </a>
+                                    <a href="#" onclick="checkAnswer(this.id)" class="btn btn-danger btn-lg" id=<%=a .gsub(/\W+/, '') %> ><%= a %></a></br>
                                     <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
                                         <% end %>
-                                            <div class="scoreme">Score
-                                                <%=@score.points%>
-                                            </div>
 
                                             <%#*<a class="btn btn-success btn-lg btn-block" href="#">CORRECT</a>%>
                                                 <%#*<a class="btn btn-danger btn-lg btn-block" href="#">INCORRECT</a>%>
@@ -120,16 +120,16 @@
                         title: data.badge_name,
                         message: "you unlocked this",
                         icon: data.badge_url,
-                        delay: 5000
+                        delay: 1000
                     });
                 }
                 if (data.valid == 'true' || data.valid == true) {
                     iosOverlay({
                         text: "Correct!",
-                        duration: 2e1
+                        duration: 700
                     });
 
-                    $("#" + idVal).attr('style', 'color:#53F49A;');
+                    $("#" + idVal).attr('style', 'color:#000;background-color:#53F49A');
                     $("a.btn").removeAttr("onclick");
                     $("#btn-next").show();
                     $("#btn-next").fadeIn(1000);
@@ -140,7 +140,7 @@
                     //$("#Status").attr('style','color:red');
                     iosOverlay({
                         text: "Try Again!",
-                        duration: 5000
+                        duration: 700
                     });
                     $("#" + idVal).attr('style', '');
                 } else {

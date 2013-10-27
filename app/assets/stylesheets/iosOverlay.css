@@ -1,26 +1,18 @@
 .ui-ios-overlay {
   z-index: 99999;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 200px;
+  width: 600px;
   height: 200px;
-  margin-left: -100px;
-  margin-top: -100px;
+  top:0;
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc000000,endColorstr=#cc000000);
-  background: rgba(0,0,0,0.8);
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
 }
 .ui-ios-overlay .title {
-  color: #FFF;
+  color: coral;
   font-weight: bold;
   text-align: center;
   display: block;
-  font-size: 26px;
+  font-size: 100px;
   position: absolute;
-  bottom: 30px;
   left: 0;
   width: 100%;
 }
@@ -35,15 +27,15 @@
 
 .ios-overlay-show {
   -webkit-animation-name: ios-overlay-show;
-  -webkit-animation-duration: 750ms;
+  -webkit-animation-duration: 250ms;
   -moz-animation-name: ios-overlay-show;
-  -moz-animation-duration: 750ms;
+  -moz-animation-duration: 250ms;
   -ms-animation-name: ios-overlay-show;
-  -ms-animation-duration: 750ms;
+  -ms-animation-duration: 250ms;
   -o-animation-name: ios-overlay-show;
-  -o-animation-duration: 750ms;
+  -o-animation-duration: 250ms;
   animation-name: ios-overlay-show;
-  animation-duration: 750ms;
+  animation-duration: 250ms;
 }
 
 @-webkit-keyframes ios-overlay-show {
@@ -69,19 +61,19 @@
 
 .ios-overlay-hide {
   -webkit-animation-name: ios-overlay-hide;
-  -webkit-animation-duration: 750ms;
+  -webkit-animation-duration: 250ms;
   -webkit-animation-fill-mode: forwards;
   -moz-animation-name: ios-overlay-hide;
-  -moz-animation-duration: 750ms;
+  -moz-animation-duration: 250ms;
   -moz-animation-fill-mode: forwards;
   -ms-animation-name: ios-overlay-hide;
-  -ms-animation-duration: 750ms;
+  -ms-animation-duration: 250ms;
   -ms-animation-fill-mode: forwards;
   -o-animation-name: ios-overlay-hide;
-  -o-animation-duration: 750ms;
+  -o-animation-duration: 250ms;
   -o-animation-fill-mode: forwards;
   animation-name: ios-overlay-hide;
-  animation-duration: 750ms;
+  animation-duration: 250ms;
   animation-fill-mode: forwards;
 }
 

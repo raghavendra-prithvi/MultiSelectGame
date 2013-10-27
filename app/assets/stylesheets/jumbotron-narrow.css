@@ -23,6 +23,12 @@ body {
   padding-bottom: 19px;
 }
 
+.img-product{
+    max-height: 600px;
+    max-width: 100%;
+    min-height: 400px;
+  }
+
 .swipecards {
       border-radius: 3px
       display: inline-block;
@@ -35,31 +41,42 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 }
 
 
-#simple-menu{
+.btn-fbshare {
+    background-color: #385699;
     color: #FFFFFF;
-    font-size: 50px;
-    font-weight: bold;
-    line-height: 50px;
-    margin: 0 0 5px;
-    padding: 0 15px;
-    background-color: #000;
-    position: absolute;
+    font-size: 24px;
+    padding: 20px;
+    width: 190px;
+}
+.btn-twtshare {
+    background-color: #59AAE1;
+    color: #FFFFFF;
+    font-size: 24px;
+    padding: 20px;
+    width: 190px;
+}
 
+#simple-menu{
+    color: #000000;
+    font-size: 60px;
+    height: 60px;
+    line-height: 45px;
+    padding-left: 11px;
+    position: absolute;
+    width: 60px;
 }
 
 /* Custom page footer */
 .footer {
   color: #777;
-  border-top: 1px solid #e5e5e5;
   z-index: 999999;
 }
 
 /* Custom container */
 .container-narrow {
     background-color: #FFFFFF;
-    border-radius: 3px 3px 3px 3px;
     margin: 0 auto 0;
-    max-width: 500px;
+    max-width: 300px;
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -75,25 +92,25 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 .win {
     font-size: 24px;
     font-weight: bold;
-    margin: 100px auto 0;
+    margin: 170px auto 0;
     position: absolute;
     transition: background-color 0.2s linear 0s;
 }
 
 .scoreme {
-    background-color: #666666;
     border: 0 solid rgba(0, 0, 0, 0);
-    color: #FFFFFF;
+    color: #000000;
     cursor: pointer;
     display: inline-block;
-    font-size: 24px;
+    font-size: 30px;
     font-style: normal;
     font-weight: bold;
     letter-spacing: 1px;
-    position: relative;
-    text-align: center;
-    white-space: nowrap;
     padding: 6px 12px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
     vertical-align: middle;
 }
 
@@ -133,7 +150,7 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 }
 
 .btn-playagain {
-    background-color: #1abc9c;
+    background-color: #68DDAB;
     color: #FFFFFF;
     margin-bottom: 20px;
     width: 100%;
@@ -193,38 +210,38 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 #btn-next {
     -moz-user-select: none;
     background-color: #3290D8;
-    color: #FFFFFF;
+    color: #000000;
     cursor: pointer;
     display: inline-block;
+    float: left;
     font-style: normal;
     font-weight: bold;
     line-height: 1.42857;
     margin-bottom: 0;
-    padding: 50px;
+    padding: 20px;
     text-align: center;
     transition: background-color 0.2s linear 0s;
     vertical-align: middle;
     white-space: nowrap;
-    width: 150px;
-
+    width: 200px;
 }
 #btn-buy {
     -moz-user-select: none;
     background-color: #53F49A;
-    color: #FFFFFF;
+    color: #000000;
     cursor: pointer;
     display: inline-block;
+    float: left;
     font-style: normal;
     font-weight: bold;
     line-height: 1.42857;
     margin-bottom: 0;
-    padding: 50px;
+    padding: 20px;
     text-align: center;
     transition: background-color 0.2s linear 0s;
     vertical-align: middle;
     white-space: nowrap;
-    width: 150px;
-
+    width: 200px;
 
 }
 
@@ -263,13 +280,6 @@ section#hero {
     margin-bottom: 30px;
   }
 
-h1, .h1 {
-    font-size: 20px;
-    font-weight: 200;
-    padding: 20px;
-    letter-spacing: 1px;
-}
-
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
@@ -287,7 +297,43 @@ h1, .h1 {
     vertical-align: middle;
 }
 
+#btn-next {
+    -moz-user-select: none;
+    background-color: #3290D8;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.2s linear 0s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 149px;
+}
+#btn-buy {
+    -moz-user-select: none;
+    background-color: #53F49A;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.2s linear 0s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 147px;
 
+
+}
 .swiper-container {
     max-height: 300px;
 }
@@ -320,46 +366,55 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 
 
 .img-product{
-  min-height: 800px;
+  min-height: 300px;
 }
 
 .thumbnail > img, .img-product {
     display: inline-block;
-    height: 200px;
+    height: 100px;
     max-width: 100%;
 }
 
 .scoreme {
-    background-color: #3290D8;
-    border: 0 solid transparent;
-    color: #FFFFFF;
-    cursor: pointer;
+    color: #000;
     display: inline-block;
-    font-size: 25px;
+    font-size: 18px;
     font-style: normal;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     line-height: 1.42857;
     margin-bottom: 0;
     padding: 10px;
-    position: relative;
+    position: absolute;
     text-align: center;
     white-space: nowrap;
-    width: 150px;
+    right:0;
+    top:0;
+}
+
+.win {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 110px auto 0;
+    position: absolute;
+    transition: background-color 0.2s linear 0s;
 }
 
 .container-narrow {
     margin: 0 auto;
-    max-width: 300px;
-    margin-top: 5px;
+    width: 300px;
 }
 .container-narrow > hr {
   margin: 30px 0;
 }
 
+col-lg-6 {
+  width: 100px;
+}
+
 section#hero {
     background: url("bg.png") repeat fixed 0 0 transparent;
-    height: 270px;
+    height: 200px;
     width: auto;
   }
 
@@ -399,7 +454,7 @@ h4, .h4 {
 }
 
 .btn-lg {    
-    font-size: 14px;
+    font-size: 20px;
     letter-spacing: 1px;
     line-height: 1.7em;
 }

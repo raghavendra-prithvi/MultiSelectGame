@@ -88,7 +88,7 @@ var iosOverlay = function(params) {
 			overlayDOM.className += " ios-overlay-show";
 		} else if (typeof $ === "function") {
 			$(overlayDOM).fadeIn({
-				duration: 700
+				duration: 300
 			}, function() {
 				settings.onshow();
 			});
@@ -112,7 +112,7 @@ var iosOverlay = function(params) {
 		} else if (typeof $ === "function") {
 			// polyfill requires jQuery
 			$(overlayDOM).fadeOut({
-				duration: 700
+				duration: 300
 			}, function() {
 				destroy();
 				settings.onhide();
