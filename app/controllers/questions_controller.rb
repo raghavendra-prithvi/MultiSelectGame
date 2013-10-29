@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_filter :login_req, :except => ['main_home']
+  #before_filter :login_req, :except => ['main_home']
   # GET /questions
   # GET /questions.json
   require 'net/http'
@@ -94,7 +94,6 @@ class QuestionsController < ApplicationController
       @question = Question.first
     end
     
-    #@question = Question.order("RANDOM()").limit(1)
   end
 
   def check_answer
@@ -110,36 +109,7 @@ class QuestionsController < ApplicationController
     render :text => valid.to_s
   end
   
-#  def home1_original
-#    @brands = ['Ray Ban','Balenciaga','Saint Laurent','Miu Miu','Lanvin','MCM','Balmain','Chanel','Maison Martin Margiela','Thom Browne','Common Projects','Azzedine Alaia','Raf Simmons','Cartier','Christian Dior','Phillip Lim','Ghurka','Proenza Schouler','Chloe','Giuseppe Zanotti','Marc Jacobs','Alexander Wang','Kenzo','Gucci','Ann Demeulemeester','Lucien Pellat-Finet','Prada','Burrberry','Fendi']
-#
-#    @products = []
-#
-#    while @products.empty? do
-#      @selected_brand = @brands.sample(1)
-#      @products = Svpply.products(query: @selected_brand[0])
-#    end
-#    #@products.any?{|p| p.title.include? @selected_brand[0] }
-#    @product = @products.sample(1)
-#
-#    #@products.uniq! {|e| e.store["name"] }
-#    #puts @stores.inspect\
-#    #@product_store_name = []
-#    #@product_store_name << @product[0].store["name"]
-#
-#    session[:answer] = @selected_brand[0].delete(' ')
-#    puts "****************"
-#    puts session[:answer]
-#    @store_names = @brands - @selected_brand
-#    @selected_store_names = @store_names.sample(3)
-#    randVal = rand(4)
-#    1..rand(10).times do
-#      randVal = rand(4)
-#    end
-#    @selected_store_names.insert(randVal,@selected_brand[0])
-#
-#    @buy_url = @product[0].url
-#  end
+
 
    def home1
      session[:score_to_be_added] = 100
@@ -150,13 +120,9 @@ class QuestionsController < ApplicationController
     @products = []
     tot_brands = @brands.length
     while @products.empty? do
-      puts "bfr rand *******************"
       b_rand = rand(tot_brands)
-      puts "aftr rand *******************"
       @selected_brand = []
        @selected_brand << @brands[b_rand]
-
-      #@products = Svpply.products(query: @selected_brand[0])
       @products = Product.where(:brand => @selected_brand[0])
     end
     @product = @products.sample(1)
@@ -175,96 +141,81 @@ class QuestionsController < ApplicationController
     @buy_url = @product[0].buy_url
   end
 
-  def home1_backup
-    session[]
-    @products = Svpply.categories.first.products("tshirt")
-    @product = @products.sample(1)
-    @products.uniq! {|e| e.store["name"] }
-    #puts @stores.inspect\
-    @product_store_name = []
-    @product_store_name << @product[0].store["name"]
-    
-    session[:answer] = @product[0].store["name"].delete(' ')
-    puts "****************"
-    puts session[:answer]
-    @store_names = @products.map{|p| p.store["name"]} - @product_store_name
-    @selected_store_names = @store_names.sample(3)
-    @selected_store_names.insert(rand(4),@product_store_name[0])
-    #@selected_store_names.remove(@product_store_name)
-    puts "*******************"
-    puts @selected_store_names.inspect
-
-    @similar_url = @product[0].categories[2]["url"]
-    @display_name = @product[0].categories[2]["name"]
-
-    @buy_url = @product[0].url
-  end
+  
   def check_brand_name
       data = {}
-      puts "****************************8 first"
        data["valid"] = false
        @score = Score.find(session[:score_id])
        @user = User.find_by_uid(session[:user_id])
         @question = @user
-        status = @user.user_status
+        status = @user.user_status unless session[:user_id].nil?
     if session[:answer] == params[:val]
-      puts "****************************8 answer chek "
-        
-        puts status.inspect
-        if status.nil?
-          new_status = UserStatus.new
-          new_status.user_id = @user.id
-          new_status.save!
-          status = new_status
-        end
-        puts "**************** after if"
-        if status.right_answers.nil?
-          status.right_answers = 1
-        else
-          puts "****************************8 right answers"
-          puts status.right_answers
-          status.right_answers += 1
-        end
-        status.save!
-        resultBadge = check_success_badges(status.right_answers)
-        if(resultBadge > 0)
-          data["achieved"] = true
-          @badge = Merit::Badge.find(resultBadge)
-          data["badge_url"] = @badge.image
-          data["badge_name"] = @badge.name
-        end
+          if !session[:user_id].nil?
+              if status.nil?
+                new_status = UserStatus.new
+                new_status.user_id = @user.id
+                new_status.save!
+                status = new_status
+              end
+              if status.right_answers.nil?
+                status.right_answers = 1
+              else
+                status.right_answers += 1
+              end
+              status.save!
+              resultBadge = check_success_badges(status.right_answers)
+              if(resultBadge > 0)
+                data["achieved"] = true
+                @badge = Merit::Badge.find(resultBadge)
+                data["badge_url"] = @badge.image
+                data["badge_name"] = @badge.name
+              end
+              @score.points = @score.points + session[:score_to_be_added]
+              @score.save!
+          end
+        session[:total_score] = session[:total_score] + session[:score_to_be_added]
         data["valid"] = true
-        @score.points = @score.points + session[:score_to_be_added]
-        @score.save!
       else
-        if status.nil?
-          new_status = UserStatus.new
-          new_status.user_id = @user.id
-          new_status.save!
-          status = new_status
-        end
-        if status.wrong_answers.nil?
-          status.wrong_answers = 1
-        else
-          status.wrong_answers += 1
-        end
-        status.save!
+          if !session[:user_id].nil?
+                if status.nil?
+                  new_status = UserStatus.new
+                  new_status.user_id = @user.id
+                  new_status.save!
+                  status = new_status
+                end
+                if status.wrong_answers.nil?
+                  status.wrong_answers = 1
+                else
+                  status.wrong_answers += 1
+                end
+                status.save!                
+                resultBadge = check_failure_badges(status.wrong_answers)
+                if(resultBadge > 0)
+                  data["achieved"] = true
+                  @badge = Merit::Badge.find(resultBadge)
+                  data["badge_url"] = @badge.image
+                  data["badge_name"] = @badge.name
+                end               
+          end
         session[:mistakes] += 1
-        if(session[:mistakes] == 10)
-            #redirect_to :action => game_over
+        if(session[:mistakes] >= 10)
             data["valid"] = "completed"
         end
-        resultBadge = check_failure_badges(status.wrong_answers)
-        if(resultBadge > 0)
-          data["achieved"] = true
-          @badge = Merit::Badge.find(resultBadge)
-          data["badge_url"] = @badge.image
-          data["badge_name"] = @badge.name
-        end
         session[:score_to_be_added] = session[:score_to_be_added] - 25
+        check_merit
       end
-      data["score"] = @score.points
-      render :json => data.to_json
+      data["score"] = session[:total_score] #@score.points
+#      if @user.nil?
+        render :json => data.to_json
+#      else
+#        redirect_to :action => 'check_merit', :data => data
+#      end
+  end
+
+
+
+  def check_merit
+    return true
   end
 
   def main_home
@@ -293,12 +244,14 @@ class QuestionsController < ApplicationController
     session[:wrong_answer_count] = 0
     session[:score_now] = 0
     session[:mistakes] = 0
-    #@@brand_length = Brand.all.length
-    @score  = Score.new
-    @score.points = 0
-    @score.user_id = session[:user_id]
-    @score.save!
-    session[:score_id] = @score.id
+    session[:total_score] = 0
+    unless session[:user_id].nil?
+        @score  = Score.new
+        @score.points = 0
+        @score.user_id = session[:user_id]
+        @score.save!
+        session[:score_id] = @score.id
+    end
     redirect_to :action => 'home1'
   end
   
@@ -306,25 +259,16 @@ class QuestionsController < ApplicationController
     @score = Score.find(session[:score_id])
     session[:score_id] = nil
     session[:mistakes] = 0
-    #render :text => @score.points.to_s
   end
 
 
   def getFriendsData
-    puts params.inspect
-   # @scores = Score.find_by_sql("SELECT DISTINCT(s.user_id), max(s.points) FROM scores s where s.user_id in #{params[:ids]} order by s.points desc")
-    #@scores = Score.where(:user_id => params[:ids]).order("points DESC")
-    params[:ids] << session[:user_id]
     @scores = Score.where(:user_id => params[:ids]).limit(10).maximum(:points,group: 'user_id')
     @scores = @scores.sort_by { |k| k[1] }.reverse
-    
-    #Score.where(:user_id => params[:ids]).select("user_id,max(points) mp").group("user_id,points").order("points DESC").limit(10)
     render :html => "getFriendsData", :layout => false
   end
   def getGlobalData
-   # @scores = Score.limit(10).select("distinct user_id,max(points) mp").group("user_id,points").order("points DESC")
-  # @scores = Score.limit(10).select("distinct user_id,*")
-    @scores = Score.limit(10).maximum(:points,group: 'user_id')
+    @scores = Score.where("user_id is not null").limit(10).maximum(:points,group: 'user_id')
     @scores = @scores.sort_by { |k| k[1] }.reverse
     render :html => "getGlobalData", :layout => false
   end
@@ -344,7 +288,6 @@ class QuestionsController < ApplicationController
         status.invited += 1
       end
       status.save!
-      #send mail to frend
   end
 
   def fbshare

@@ -27,7 +27,7 @@
 </script>
  <div class="container-narrow">
       <div class="jumbotron">
-        <h3>Final Score</h3></br><h1><%= @score.points %> </h1>
+        <h3>Final Score</h3></br><h1><%= session[:total_score] %> </h1>
         <%=hidden_field_tag :score_points,@score.points, {:id=>"score_points" }%>
       </div>
       <div class="row marketing">

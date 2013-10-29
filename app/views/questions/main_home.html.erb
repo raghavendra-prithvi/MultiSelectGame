@@ -55,11 +55,11 @@ window.onload = function() {
     <div style="margin-top:20px;" class="container-narrow">
       <div class="row">
                 <div class="col-lg-6">
+
            <% if session[:user_id].nil? %>
             <center><a class="btn btn-facebook btn-lg text-center" href="/auth/facebook">FACEBOOK</a></div></center>
-            <% else %>
-                <center><a class="btn btn-facebook btn-lg text-center" href="/start">PLAY</a></div></center>
             <% end %>
+            <center><a class="btn btn-facebook btn-lg text-center" href="/start">PLAY</a></div></center>            
             <div class="col-lg-6">
           <a class="btn btn-highscores btn-lg text-center" href="/highscores">HIGH SCORES</a>
         </div>

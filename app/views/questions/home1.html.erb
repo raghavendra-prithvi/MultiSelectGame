@@ -27,7 +27,8 @@
     });
 </script>
                                             <div class="scoreme">Score
-                                                <%=@score.points%>
+                                                <%#=@score.points%>
+                                              <%=session[:total_score] %>
                                             </div>
 <script>
     $(document).ready(function () {

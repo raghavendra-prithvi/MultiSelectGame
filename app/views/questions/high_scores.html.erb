@@ -13,26 +13,39 @@
 </div>
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
-<%=hidden_field_tag :auth_token,session[:access_token],:id => "access_tkn"%>
-      	<table class="table" id="data_table">
-        <tbody id="selfData">
-          <% @user = User.find_by_uid(session[:user_id]) %>
-          <% i = 1 %>
-          <% @scores.each do |s| %>
-          <tr>
-            <% if i < 4 %>
-              <!-- <td><h5><%=image_tag(@user.img, :style => "border-radius:30px; margin:3px", :size => '25x25' )%></h5></td> -->
-              <td><h6><%=@user.name %></h6></td>
-              <td><h6><%=s.points %></h6></td>
-            <% else %>
-              <!-- <<td><h5><%=image_tag(@user.img) %></h5></td> -->
-              <td><h5><%=@user.name %></h6></td>
-              <td><h5><%=s.points %></h6></td>
-            <% end %>
-          </tr>
-          <% end %>   
-          </tbody>
-      	</table>
+     
+            <%=hidden_field_tag :auth_token,session[:access_token],:id => "access_tkn"%>
+            <table class="table" id="data_table">               
+              <tbody id="selfData">
+                <% if !session[:user_id].nil? %>
+                      <% @user = User.find_by_uid(session[:user_id]) unless session[:user_id] %>
+                      <% i = 1 %>
+                      <% @scores.each do |s| %>
+                      <tr>
+                        <% if i < 4 %>
+                          <!-- <td><h5><%=image_tag(@user.img, :style => "border-radius:30px; margin:3px", :size => '25x25' )%></h5></td> -->
+                          <td><h6><%=@user.name %></h6></td>
+                          <td><h6><%=s.points %></h6></td>
+                        <% else %>
+                          <!-- <<td><h5><%=image_tag(@user.img) %></h5></td> -->
+                          <td><h5><%=@user.name %></h5></td>
+                          <td><h5><%=s.points %></h5></td>
+                        <% end %>
+                      </tr>
+                      <% end %>
+                 <% else %>
+                    <tr>
+                      <td>
+                      Login to save your Highscores </br>
+                      Your Lastplayed score : <%= session[:total_score] %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+               
+            </table>
+       
+      
       </div>
     </row>
 </div>

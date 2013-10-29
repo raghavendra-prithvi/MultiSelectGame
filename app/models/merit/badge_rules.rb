@@ -21,78 +21,80 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-      grant_on 'questions#check_brand_name', :badge => 'Label Whore', :model_name => 'User' do |u|
-        u.user_status.right_answers == 10
-      end
-      grant_on 'questions#check_brand_name', :badge => 'Intern', :model_name => 'User' do |user|
-        user.user_status.right_answers == 10
-      end
-
-      grant_on 'questions#check_brand_name', :badge => 'Label Whore', :model_name => 'User' do |user|
-        user.user_status.right_answers == 25
-      end
+      
+            grant_on 'questions#check_merit', :badge => 'Label Whore', :model_name => 'User' do |u|
+              #puts u.inspect
+              u.user_status.right_answers == 10  unless u.nil?
+            end
+#            grant_on 'questions#check_brand_name', :badge => 'Intern', :model_name => 'User' do |user|
+#              user.user_status.right_answers == 10
+#            end
 #
-      grant_on 'questions#check_brand_name', :badge => 'Addict', :model_name => 'User' do |user|
-        user.user_status.right_answers == 50
-      end
+#            grant_on 'questions#check_merit', :badge => 'Label Whore', :model_name => 'User' do |user|
+#              user.user_status.right_answers == 25
+#            end
+#      #
+#            grant_on 'questions#check_merit', :badge => 'Addict', :model_name => 'User' do |user|
+#              user.user_status.right_answers == 50
+#            end
+#      #
+#            grant_on 'questions#check_merit', :badge => 'Stylist', :model_name => 'User' do |user|
+#              user.user_status.right_answers == 100
+#            end
+#      #
+#            grant_on 'questions#check_merit', :badge => 'Fashion Killa', :model_name => 'User' do |user|
+#              user.user_status.right_answers == 500
+#            end
+#      #
+#            grant_on 'questions#check_merit', :badge => 'Fashionista', :model_name => 'User' do |user|
+#              user.user_status.right_answers == 1000
+#            end
+#      #
+#            grant_on 'questions#check_merit', :badge => 'Editor at Large', :model_name => 'User' do |user|
+#              user.user_status.right_answers == 10000
+#            end
+#      #
+#      #
+#      #      #### Losts ############
+#            grant_on 'questions#check_merit', :badge => 'Knockoff', :model_name => 'User' do |user|
+#              user.user_status.wrong_answers == 10
+#            end
 #
-      grant_on 'questions#check_brand_name', :badge => 'Stylist', :model_name => 'User' do |user|
-        user.user_status.right_answers == 100
-      end
-#
-      grant_on 'questions#check_brand_name', :badge => 'Fashion Killa', :model_name => 'User' do |user|
-        user.user_status.right_answers == 500
-      end
-#
-      grant_on 'questions#check_brand_name', :badge => 'Fashionista', :model_name => 'User' do |user|
-        user.user_status.right_answers == 1000
-      end
-#
-      grant_on 'questions#check_brand_name', :badge => 'Editor at Large', :model_name => 'User' do |user|
-        user.user_status.right_answers == 10000
-      end
-#
-#
-#      #### Losts ############
-      grant_on 'questions#check_brand_name', :badge => 'Knockoff', :model_name => 'User' do |user|
-        user.user_status.wrong_answers == 10
-      end
-
-     grant_on 'questions#check_brand_name', :badge => 'Poser', :model_name => 'User' do |user|
-        user.user_status.wrong_answers == 25
-      end
-#
-      grant_on 'questions#check_brand_name', :badge => 'Diva', :model_name => 'User' do |user|
-        user.user_status.wrong_answers == 50
-      end
-#
-      grant_on 'questions#check_brand_name', :badge => 'Trainwreck', :model_name => 'User' do |user|
-        user.user_status.wrong_answers == 100
-      end
-#
-#
-#      #invitations
-      grant_on 'questions#invite_friend', :badge => 'Namedropper', :model_name => 'User' do |user|
-        user.user_status.invited == 1
-      end
-#
-      grant_on 'questions#invite_friend', :badge => 'Entourage', :model_name => 'User' do |user|
-        user.user_status.invited == 5
-      end
-#
-      grant_on 'questions#invite_friend', :badge => 'Trendsetter', :model_name => 'User' do |user|
-        user.user_status.invited == 10
-      end
-#
-#      #share highscore on facebook
-      grant_on 'questions#fbshare', :badge => 'Bragging Rights', :model_name => 'User' do |user|
-        user.user_status.shared_on_fb == true
-      end
-#
-      grant_on 'questions#buyed', :badge => 'Buyer', :model_name => 'User' do |user|
-        user.user_status.buyer == true
-      end
-
+#           grant_on 'questions#check_merit', :badge => 'Poser', :model_name => 'User' do |user|
+#              user.user_status.wrong_answers == 25
+#            end
+#      #
+#            grant_on 'questions#check_merit', :badge => 'Diva', :model_name => 'User' do |user|
+#              user.user_status.wrong_answers == 50
+#            end
+#      #
+#            grant_on 'questions#check_merit', :badge => 'Trainwreck', :model_name => 'User' do |user|
+#              user.user_status.wrong_answers == 100
+#            end
+#      #
+#      #
+#      #      #invitations
+#            grant_on 'questions#invite_friend', :badge => 'Namedropper', :model_name => 'User' do |user|
+#              user.user_status.invited == 1
+#            end
+#      #
+#            grant_on 'questions#invite_friend', :badge => 'Entourage', :model_name => 'User' do |user|
+#              user.user_status.invited == 5
+#            end
+#      #
+#            grant_on 'questions#invite_friend', :badge => 'Trendsetter', :model_name => 'User' do |user|
+#              user.user_status.invited == 10
+#            end
+#      #
+#      #      #share highscore on facebook
+#            grant_on 'questions#fbshare', :badge => 'Bragging Rights', :model_name => 'User' do |user|
+#              user.user_status.shared_on_fb == true
+#            end
+#      #
+#            grant_on 'questions#buyed', :badge => 'Buyer', :model_name => 'User' do |user|
+#              user.user_status.buyer == true
+#            end
+      
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # grant_on 'users#create', :badge => 'just-registered', :to => :itself
