@@ -126,7 +126,7 @@ class QuestionsController < ApplicationController
       @products = Product.where(:brand => @selected_brand[0])
     end
     @product = @products.sample(1)
-    @score = Score.find(session[:score_id])
+   # @score = Score.find(session[:score_id])
 
     session[:answer] = @selected_brand[0].gsub(/\W+/, '')
     session[:score_to_be_added] = 100
