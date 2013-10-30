@@ -145,7 +145,7 @@ class QuestionsController < ApplicationController
   def check_brand_name
       data = {}
        data["valid"] = false
-       @score = Score.find(session[:score_id])
+       @score = Score.find(session[:score_id]) unless session[:user_id].nil?
        @user = User.find_by_uid(session[:user_id])
         @question = @user
         status = @user.user_status unless session[:user_id].nil?
