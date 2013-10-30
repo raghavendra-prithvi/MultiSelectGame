@@ -256,7 +256,7 @@ class QuestionsController < ApplicationController
   end
   
   def game_end
-    @score = Score.find(session[:score_id])
+    @score = Score.find(session[:score_id]) unless session[:user_id].nil?
     session[:score_id] = nil
     session[:mistakes] = 0
   end
