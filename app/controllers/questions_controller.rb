@@ -219,7 +219,7 @@ class QuestionsController < ApplicationController
   end
 
   def main_home
-        
+        redirect_to :action => 'game_start'
   end
 
   def load_data
