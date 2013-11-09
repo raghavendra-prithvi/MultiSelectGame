@@ -38,10 +38,11 @@
 }
 .sidr h1, .sidr h2, .sidr h3, .sidr h4, .sidr h5, .sidr h6 {
     color: #FFFFFF;
-    font-size: 50px;
+    font-size: 35px;
     font-weight: bold;
-    line-height: 50px;
-    margin: 0 0 5px;
+    letter-spacing: 1px;
+    line-height: 35px;
+    margin: 20px 0 30px;
     padding: 0 15px;
 }
 .sidr p {

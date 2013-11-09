@@ -6,7 +6,7 @@
         <li>
             <h3>Name that Designer</h3>
         </li>
-        <li><a href="#">New Game</a>
+        <li><a href="http://multichoiceapp.herokuapp.com">New Game</a>
         </li>
         <li><a href="#">Highscores</a>
         </li>
@@ -27,19 +27,18 @@
 </script>
  <div class="container-narrow">
       <div class="jumbotron">
-        <h3>Final Score</h3></br><h1><%= session[:total_score] %> </h1>
+        <h1><%= session[:total_score] %> </h1>
         <%=hidden_field_tag :score_points,session[:total_score], {:id=>"score_points" }%>
       </div>
       <div class="row marketing">
         <div class="col-lg-12" style"margin-top: 200px;">
              <p id='msg'></p>
-          <a class="btn btn-fbshare btn-lg text-center"  href="#" onclick='postToFeed(); return false;'>F<div id='fb-root'></div>
+          <a class="btn btn-fbshare btn-lg text-center"  href="#" onclick='postToFeed(); return false;'><img src="assets/facebook_f.png"><div id='fb-root'></div>
     </a>
-          
-          <a class="btn btn-twtshare btn-lg text-center" id="twitter_button" href="#" data-lang="en" target="_blank" onclick="twitterClick()"> <img src="/assets/images/twitter.png"/>
-          <a class="btn btn-playagain btn-lg text-center" href="/start">PLAY AGAIN</a>
-          <a class="btn btn-blank btn-lg btn-block" href="/highscores">HIGH SCORES </a>
-          <a class="btn btn-playagain btn-lg text-center" href="/badges">Badges</a>
+          <a class="btn btn-twtshare btn-lg text-center" id="twitter_button" href="#" data-lang="en" target="_blank" onclick="twitterClick()"><img src="assets/twitter_bird.png"/>
+          <a class="btn btn-blank btn-lg btn-block" href="/start">Play Again</a>
+          <a class="btn btn-blank btn-lg btn-block" href="/highscores">High Scores</a>
+          <a class="btn btn-blank btn-lg btn-block" href="/badges">Badges</a>
         </div>
       </div>
     </div> <!-- /container -->

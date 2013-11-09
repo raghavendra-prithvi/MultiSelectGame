@@ -46,14 +46,24 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
     color: #FFFFFF;
     font-size: 24px;
     padding: 20px;
-    width: 190px;
+    width: 50%;
 }
+
+.btn-fbshare:hover {
+    background-color: #3876AC;
+}
+
 .btn-twtshare {
     background-color: #59AAE1;
     color: #FFFFFF;
     font-size: 24px;
     padding: 20px;
-    width: 190px;
+    width: 50%;
+    float:right;
+}
+
+.btn-twtshare:hover {
+    background-color: #59c5e1;
 }
 
 #simple-menu{
@@ -76,7 +86,7 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 .container-narrow {
     background-color: #FFFFFF;
     margin: 0 auto 0;
-    max-width: 300px;
+    width: 600px;
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -90,11 +100,12 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 }
 
 .win {
-    font-size: 24px;
+    font-size: 50px;
     font-weight: bold;
     margin: 170px auto 0;
     position: absolute;
     transition: background-color 0.2s linear 0s;
+    width: 600px;
 }
 
 .scoreme {
@@ -150,10 +161,9 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 }
 
 .btn-playagain {
-    background-color: #68DDAB;
+    background-color: #000;
     color: #FFFFFF;
     margin-bottom: 20px;
-    width: 100%;
 }
 
 .btn-playagain:hover,
@@ -223,7 +233,7 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
     transition: background-color 0.2s linear 0s;
     vertical-align: middle;
     white-space: nowrap;
-    width: 200px;
+    width: 50%;
 }
 #btn-buy {
     -moz-user-select: none;
@@ -241,8 +251,7 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
     transition: background-color 0.2s linear 0s;
     vertical-align: middle;
     white-space: nowrap;
-    width: 200px;
-
+    width: 50%;
 }
 
 .back {
@@ -361,7 +370,6 @@ box-shadow:         0px 0px 3px rgba(80, 80, 80, 0.2);
 
 .jumbotron {
   text-align: center;
-  min-height:200px
 }
 
 
@@ -423,10 +431,9 @@ section#hero {
 }
 
 h1, .h1 {
-    font-size: 20px;
-    font-weight: 200;
+    font-size: 100px;
+    font-weight: 100;
     padding: 20px;
-    letter-spacing: 1px;
 }
 
 h4, .h4 {

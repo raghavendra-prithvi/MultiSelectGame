@@ -1,14 +1,38 @@
-    <div class="navbar-header text-center">
-        <h1>HIGH SCORES</h1>
-      </div>
+<a id="simple-menu" href="#sidr">=</a>
+
+<div id="sidr">
+    <!-- Your content -->
+    <ul>
+        <li>
+            <h3>Name that Designer</h3>
+        </li>
+        <li><a href="http://multichoiceapp.herokuapp.com">New Game</a>
+        </li>
+        <li><a href="#">Highscores</a>
+        </li>
+        <li><a href="#">Trophies</a>
+        </li>
+        <li><a href="#">Settings</a>
+        </li>
+        <li><a href="#">Logout</a>
+        <li><a href="#">?</a>
+        </li>
+
+    </ul>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#simple-menu').sidr();
+    });
+</script>
  <div class="container-narrow">
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-      	<ul class="nav nav-pills">
-  <li class="active"><a href="#" onclick="selfScores();$('li').removeAttr('class');$(this).parent('li').attr('class','active')">YOUR SCORES</a></li>
-  <li><a href="#" onclick="friendScores();$('li').removeAttr('class');$(this).parent('li').attr('class','active')">FRIENDS</a></li>
-  <li><a href="#" onclick="globalScores();$('li').removeAttr('class');$(this).parent('li').attr('class','active')">GLOBAL</a></li>
-  </ul>
+      	<ul class="nav nav-pills"><h3>
+  <li class="btn btn-blank btn-lg btn-block" ><a href="#" onclick="selfScores();$('li').removeAttr('class');$(this).parent('li').attr('class','active')">Your Scores</a></li>
+  <li class="btn btn-blank btn-lg btn-block"><a href="#" onclick="friendScores();$('li').removeAttr('class');$(this).parent('li').attr('class','active')">Friends</a></li>
+  <li class="btn btn-blank btn-lg btn-block"><a href="#" onclick="globalScores();$('li').removeAttr('class');$(this).parent('li').attr('class','active')">Global</a></li>
+  </ul></h3>
   </div>
 </div>
   <div class="row">
@@ -36,8 +60,14 @@
                  <% else %>
                     <tr>
                       <td>
-                      Login to save your Highscores </br>
-                      Your Lastplayed score : <%= session[:total_score] %>
+                        <center>
+                          </br>
+                      <h2>
+                      Last played score : <%= session[:total_score] %>
+                      <h2>
+                      <a href="">Login</a> to save
+                      </h2>
+                    </center>
                       </td>
                     </tr>
                   <% end %>
@@ -51,7 +81,7 @@
 </div>
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-          <a class="btn btn-playagain btn-lg text-center" href="/start">PLAY AGAIN</a>
+          <a class="btn btn-blank btn-lg btn-block" href="/start">Play Again</a>
         </div>
       </div>
     </div> <!-- /container -->
